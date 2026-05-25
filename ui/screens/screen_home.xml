@@ -1,8 +1,23 @@
 <screen>
     <animations>
         <timeline name="screen_open">
-            <animation prop="opa" start="0" end="255" duration="250" early_apply="true" target="self" />
-            <animation prop="translate_x" start="-40" end="0" duration="250" early_apply="true" target="self" />
+            <animation prop="opa" target="top_bar" start="0" end="255" duration="180" delay="0" early_apply="true" />
+            <animation prop="translate_y" target="top_bar" start="-20" end="0" duration="180" delay="0" early_apply="true" />
+
+            <animation prop="opa" target="main_card" start="0" end="255" duration="220" delay="80" early_apply="true" />
+            <animation prop="translate_x" target="main_card" start="-40" end="0" duration="220" delay="80" early_apply="true" />
+
+            <animation prop="opa" target="today_card" start="0" end="255" duration="220" delay="160" early_apply="true" />
+            <animation prop="translate_x" target="today_card" start="-35" end="0" duration="220" delay="160" early_apply="true" />
+
+            <animation prop="opa" target="month_card" start="0" end="255" duration="220" delay="220" early_apply="true" />
+            <animation prop="translate_x" target="month_card" start="35" end="0" duration="220" delay="220" early_apply="true" />
+
+            <animation prop="opa" target="status_card" start="0" end="255" duration="220" delay="300" early_apply="true" />
+            <animation prop="translate_y" target="status_card" start="25" end="0" duration="220" delay="300" early_apply="true" />
+
+            <animation prop="opa" target="bottom_bar" start="0" end="255" duration="180" delay="380" early_apply="true" />
+            <animation prop="translate_y" target="bottom_bar" start="20" end="0" duration="180" delay="380" early_apply="true" />
         </timeline>
     </animations>
 
@@ -23,11 +38,9 @@
 
     <view>
         <play_timeline_event target="self" timeline="screen_open" trigger="screen_loaded" />
-
         <style name="style_screen_bg" />
 
-        <!-- 顶部状态栏：标题 + 时间 + 通信状态 -->
-        <lv_obj x="0" y="0" width="240" height="30">
+        <lv_obj name="top_bar" x="0" y="0" width="240" height="30">
             <style name="style_top_bar" />
             <lv_label x="8" y="7" text="家庭能量监测">
                 <style name="style_text_title" />
@@ -43,8 +56,7 @@
             </lv_label>
         </lv_obj>
 
-        <!-- 当前总功率：首页重点显示 -->
-        <lv_obj x="10" y="38" width="220" height="62">
+        <lv_obj name="main_card" x="10" y="38" width="220" height="62">
             <style name="style_card_main" />
             <lv_label x="0" y="0" text="当前总功率">
                 <style name="style_text_muted" />
@@ -57,8 +69,7 @@
             </lv_label>
         </lv_obj>
 
-        <!-- 今日 / 本月用电量 -->
-        <lv_obj x="10" y="108" width="105" height="52">
+        <lv_obj name="today_card" x="10" y="108" width="105" height="52">
             <style name="style_card" />
             <lv_label x="0" y="0" text="今日用电">
                 <style name="style_text_muted" />
@@ -68,7 +79,7 @@
             </lv_label>
         </lv_obj>
 
-        <lv_obj x="125" y="108" width="105" height="52">
+        <lv_obj name="month_card" x="125" y="108" width="105" height="52">
             <style name="style_card" />
             <lv_label x="0" y="0" text="本月用电">
                 <style name="style_text_muted" />
@@ -78,8 +89,7 @@
             </lv_label>
         </lv_obj>
 
-        <!-- 电网、电价时段、通信状态 -->
-        <lv_obj x="10" y="168" width="220" height="42">
+        <lv_obj name="status_card" x="10" y="168" width="220" height="42">
             <style name="style_card" />
             <lv_label x="0" y="0" text="电网">
                 <style name="style_text_muted" />
@@ -93,7 +103,6 @@
             <lv_label x="142" y="0" text="谷电">
                 <style name="style_text_warn" />
             </lv_label>
-
             <lv_label x="0" y="20" text="WiFi">
                 <style name="style_text_muted" />
             </lv_label>
@@ -108,8 +117,7 @@
             </lv_label>
         </lv_obj>
 
-        <!-- 底部按键提示栏，点击/确认区域进入电压页；目标页通过 timeline 入场 -->
-        <lv_obj x="0" y="218" width="240" height="22">
+        <lv_obj name="bottom_bar" x="0" y="218" width="240" height="22">
             <style name="style_bottom_bar" />
             <lv_label x="8" y="5" text="上/下 切页">
                 <style name="style_text_muted" />
