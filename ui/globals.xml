@@ -20,6 +20,10 @@
     </images>
 
     <fonts>
-        <!-- Add <bin> , <tiny_ttf>, <freetype> tags here -->
+        <!-- Chinese UI fonts for 240x240 TFT pages. -->
+        <tiny_ttf as_file="false" name="font_cn_12" src_path="fonts/LXGWWenKaiMono-Medium.ttf" size="12" />
+        <tiny_ttf as_file="false" name="font_cn_14" src_path="fonts/LXGWWenKaiMono-Medium.ttf" size="14" />
+        <tiny_ttf as_file="false" name="font_cn_18" src_path="fonts/LXGWWenKaiMono-Medium.ttf" size="18" />
+        <tiny_ttf as_file="false" name="font_cn_24" src_path="fonts/LXGWWenKaiMono-Medium.ttf" size="24" />
     </fonts>
 </globals>
