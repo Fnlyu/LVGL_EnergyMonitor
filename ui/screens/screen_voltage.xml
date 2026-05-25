@@ -1,8 +1,23 @@
 <screen>
     <animations>
         <timeline name="screen_open">
-            <animation prop="opa" start="0" end="255" duration="250" early_apply="true" target="self" />
-            <animation prop="translate_x" start="40" end="0" duration="250" early_apply="true" target="self" />
+            <animation prop="opa" target="top_bar" start="0" end="255" duration="180" delay="0" early_apply="true" />
+            <animation prop="translate_y" target="top_bar" start="-20" end="0" duration="180" delay="0" early_apply="true" />
+
+            <animation prop="opa" target="main_card" start="0" end="255" duration="220" delay="80" early_apply="true" />
+            <animation prop="translate_x" target="main_card" start="40" end="0" duration="220" delay="80" early_apply="true" />
+
+            <animation prop="opa" target="phase_card" start="0" end="255" duration="220" delay="160" early_apply="true" />
+            <animation prop="translate_x" target="phase_card" start="-35" end="0" duration="220" delay="160" early_apply="true" />
+
+            <animation prop="opa" target="freq_card" start="0" end="255" duration="220" delay="220" early_apply="true" />
+            <animation prop="translate_x" target="freq_card" start="35" end="0" duration="220" delay="220" early_apply="true" />
+
+            <animation prop="opa" target="hint_card" start="0" end="255" duration="220" delay="300" early_apply="true" />
+            <animation prop="translate_y" target="hint_card" start="25" end="0" duration="220" delay="300" early_apply="true" />
+
+            <animation prop="opa" target="bottom_bar" start="0" end="255" duration="180" delay="380" early_apply="true" />
+            <animation prop="translate_y" target="bottom_bar" start="20" end="0" duration="180" delay="380" early_apply="true" />
         </timeline>
     </animations>
 
@@ -24,11 +39,9 @@
 
     <view>
         <play_timeline_event target="self" timeline="screen_open" trigger="screen_loaded" />
-
         <style name="style_screen_bg" />
 
-        <!-- 顶部状态栏：页面标题 + 时间 + 通信状态 -->
-        <lv_obj x="0" y="0" width="240" height="30">
+        <lv_obj name="top_bar" x="0" y="0" width="240" height="30">
             <style name="style_top_bar" />
             <lv_label x="8" y="7" text="电压/频率">
                 <style name="style_text_title" />
@@ -44,8 +57,7 @@
             </lv_label>
         </lv_obj>
 
-        <!-- 主电压卡片：单相模式可只更新 U，三相模式更新 Ua/Ub/Uc -->
-        <lv_obj x="10" y="38" width="220" height="62">
+        <lv_obj name="main_card" x="10" y="38" width="220" height="62">
             <style name="style_card_main" />
             <lv_label x="0" y="0" text="当前电压">
                 <style name="style_text_muted" />
@@ -58,8 +70,7 @@
             </lv_label>
         </lv_obj>
 
-        <!-- 三相电压明细 -->
-        <lv_obj x="10" y="108" width="105" height="72">
+        <lv_obj name="phase_card" x="10" y="108" width="105" height="72">
             <style name="style_card" />
             <lv_label x="0" y="0" text="Ua">
                 <style name="style_text_muted" />
@@ -81,8 +92,7 @@
             </lv_label>
         </lv_obj>
 
-        <!-- 频率与状态 -->
-        <lv_obj x="125" y="108" width="105" height="72">
+        <lv_obj name="freq_card" x="125" y="108" width="105" height="72">
             <style name="style_card" />
             <lv_label x="0" y="0" text="频率">
                 <style name="style_text_muted" />
@@ -98,16 +108,14 @@
             </lv_label>
         </lv_obj>
 
-        <!-- 异常提示区 -->
-        <lv_obj x="10" y="188" width="220" height="22">
+        <lv_obj name="hint_card" x="10" y="188" width="220" height="22">
             <style name="style_card" />
             <lv_label x="0" y="0" text="异常提示：无过压/欠压/断相">
                 <style name="style_text_ok" />
             </lv_label>
         </lv_obj>
 
-        <!-- 底部按键提示栏，点击/确认区域返回首页；目标页通过 timeline 入场 -->
-        <lv_obj x="0" y="218" width="240" height="22">
+        <lv_obj name="bottom_bar" x="0" y="218" width="240" height="22">
             <style name="style_bottom_bar" />
             <lv_label x="8" y="5" text="上/下 切页">
                 <style name="style_text_muted" />
