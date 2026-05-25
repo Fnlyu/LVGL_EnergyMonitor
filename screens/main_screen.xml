@@ -1,7 +1,0 @@
-<screen>
-    <view>
-        <lv_button width="140" height="50" align="center">
-            <lv_label text="Hello World" align="center" />
-        </lv_button>
-    </view>
-</screen>
