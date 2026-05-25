@@ -11,6 +11,7 @@
         <style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_24" />
         <style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
         <style name="style_text_warn" text_color="0xffd166" text_font="font_cn_12" />
+        <style name="style_touch_area" bg_opa="0" border_width="0" radius="0" pad_all="0" />
     </styles>
 
     <view>
@@ -98,18 +99,23 @@
             </lv_label>
         </lv_obj>
 
-        <!-- 底部按键提示栏 -->
+        <!-- 底部按键提示栏，点击/确认区域进入电压页，带左滑动画 -->
         <lv_obj x="0" y="218" width="240" height="22">
             <style name="style_bottom_bar" />
             <lv_label x="8" y="5" text="上/下 切页">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="92" y="5" text="确认 实时测量">
+            <lv_label x="92" y="5" text="确认 电压页">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="196" y="5" text="首页">
+            <lv_label x="196" y="5" text="1/8">
                 <style name="style_text_ok" />
             </lv_label>
         </lv_obj>
+
+        <lv_button x="0" y="218" width="240" height="22">
+            <style name="style_touch_area" />
+            <screen_create_event screen="screen_voltage" trigger="clicked" anim_type="move_left" />
+        </lv_button>
     </view>
 </screen>
