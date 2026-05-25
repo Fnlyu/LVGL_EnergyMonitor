@@ -33,7 +33,6 @@
         <style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_24" />
         <style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
         <style name="style_text_warn" text_color="0xffd166" text_font="font_cn_12" />
-        <style name="style_touch_area" bg_opa="0" border_width="0" radius="0" pad_all="0" />
     </styles>
 
     <view>
@@ -45,13 +44,13 @@
             <lv_label x="8" y="7" text="家庭能量监测">
                 <style name="style_text_title" />
             </lv_label>
-            <lv_label x="168" y="8" text="12:30">
+            <lv_label name="label_time" x="168" y="8" text="12:30">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="206" y="8" text="●">
+            <lv_label name="label_comm_dot" x="206" y="8" text="●">
                 <style name="style_text_ok" />
             </lv_label>
-            <lv_label x="220" y="8" text="485">
+            <lv_label name="label_rs485_status" x="220" y="8" text="485">
                 <style name="style_text_muted" />
             </lv_label>
         </lv_obj>
@@ -61,10 +60,10 @@
             <lv_label x="0" y="0" text="当前总功率">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="0" y="23" text="3.26 kW">
+            <lv_label name="label_total_power" x="0" y="23" text="--.-- kW">
                 <style name="style_text_value" />
             </lv_label>
-            <lv_label x="152" y="32" text="负载正常">
+            <lv_label name="label_load_status" x="152" y="32" text="负载正常">
                 <style name="style_text_ok" />
             </lv_label>
         </lv_obj>
@@ -74,7 +73,7 @@
             <lv_label x="0" y="0" text="今日用电">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="0" y="22" text="12.8 kWh">
+            <lv_label name="label_today_energy" x="0" y="22" text="--.- kWh">
                 <style name="style_text_normal" />
             </lv_label>
         </lv_obj>
@@ -84,7 +83,7 @@
             <lv_label x="0" y="0" text="本月用电">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="0" y="22" text="186.5 kWh">
+            <lv_label name="label_month_energy" x="0" y="22" text="---.- kWh">
                 <style name="style_text_normal" />
             </lv_label>
         </lv_obj>
@@ -94,25 +93,25 @@
             <lv_label x="0" y="0" text="电网">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="38" y="0" text="正常">
+            <lv_label name="label_grid_status" x="38" y="0" text="正常">
                 <style name="style_text_ok" />
             </lv_label>
             <lv_label x="104" y="0" text="时段">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="142" y="0" text="谷电">
+            <lv_label name="label_price_period" x="142" y="0" text="谷电">
                 <style name="style_text_warn" />
             </lv_label>
             <lv_label x="0" y="20" text="WiFi">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="38" y="20" text="已连接">
+            <lv_label name="label_wifi_status" x="38" y="20" text="已连接">
                 <style name="style_text_ok" />
             </lv_label>
             <lv_label x="104" y="20" text="BLE">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="142" y="20" text="未连接">
+            <lv_label name="label_ble_status" x="142" y="20" text="未连接">
                 <style name="style_text_normal" />
             </lv_label>
         </lv_obj>
@@ -122,17 +121,12 @@
             <lv_label x="8" y="5" text="上/下 切页">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="92" y="5" text="确认 电压页">
+            <lv_label x="92" y="5" text="确认 详情">
                 <style name="style_text_muted" />
             </lv_label>
             <lv_label x="196" y="5" text="1/8">
                 <style name="style_text_ok" />
             </lv_label>
         </lv_obj>
-
-        <lv_button x="0" y="218" width="240" height="22">
-            <style name="style_touch_area" />
-            <screen_create_event screen="screen_voltage" trigger="clicked" />
-        </lv_button>
     </view>
 </screen>
