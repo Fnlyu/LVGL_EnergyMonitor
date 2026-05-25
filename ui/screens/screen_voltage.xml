@@ -23,11 +23,8 @@
 
     <styles>
         <style name="style_screen_bg" bg_color="0x0b1220" />
-        <style name="style_top_bar" bg_color="0x162033" border_width="0" radius="0" pad_all="0" />
         <style name="style_card" bg_color="0x111c2e" border_color="0x26384f" border_width="1" radius="8" pad_all="6" />
         <style name="style_card_main" bg_color="0x10263c" border_color="0x2e5a7a" border_width="1" radius="10" pad_all="8" />
-        <style name="style_bottom_bar" bg_color="0x111827" border_width="0" radius="0" pad_all="0" />
-        <style name="style_text_title" text_color="0xffffff" text_font="font_cn_14" />
         <style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
         <style name="style_text_muted" text_color="0x8fa3bf" text_font="font_cn_12" />
         <style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_18" />
@@ -40,21 +37,7 @@
         <play_timeline_event target="self" timeline="screen_open" trigger="screen_loaded" />
         <style name="style_screen_bg" />
 
-        <lv_obj name="top_bar" x="0" y="0" width="240" height="30">
-            <style name="style_top_bar" />
-            <lv_label x="8" y="7" text="电压/频率">
-                <style name="style_text_title" />
-            </lv_label>
-            <lv_label name="label_time" x="168" y="8" text="12:30">
-                <style name="style_text_muted" />
-            </lv_label>
-            <lv_label name="label_comm_dot" x="206" y="8" text="●">
-                <style name="style_text_ok" />
-            </lv_label>
-            <lv_label name="label_wifi_top_status" x="218" y="8" text="WiFi">
-                <style name="style_text_muted" />
-            </lv_label>
-        </lv_obj>
+        <top_status_bar name="top_bar" x="0" y="0" title_text="电压/频率" time_text="12:30" comm_text="WiFi" />
 
         <lv_obj name="main_card" x="10" y="38" width="220" height="62">
             <style name="style_card_main" />
@@ -114,17 +97,6 @@
             </lv_label>
         </lv_obj>
 
-        <lv_obj name="bottom_bar" x="0" y="218" width="240" height="22">
-            <style name="style_bottom_bar" />
-            <lv_label x="8" y="5" text="上/下 切页">
-                <style name="style_text_muted" />
-            </lv_label>
-            <lv_label x="92" y="5" text="确认 详情">
-                <style name="style_text_muted" />
-            </lv_label>
-            <lv_label x="196" y="5" text="2/8">
-                <style name="style_text_ok" />
-            </lv_label>
-        </lv_obj>
+        <bottom_key_bar name="bottom_bar" x="0" y="218" left_text="上/下 切页" center_text="确认 详情" right_text="2/8" />
     </view>
 </screen>
