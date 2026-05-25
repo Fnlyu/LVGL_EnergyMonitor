@@ -34,7 +34,6 @@
         <style name="style_text_big_value" text_color="0x4dd4ff" text_font="font_cn_24" />
         <style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
         <style name="style_text_warn" text_color="0xffd166" text_font="font_cn_12" />
-        <style name="style_touch_area" bg_opa="0" border_width="0" radius="0" pad_all="0" />
     </styles>
 
     <view>
@@ -46,13 +45,13 @@
             <lv_label x="8" y="7" text="电压/频率">
                 <style name="style_text_title" />
             </lv_label>
-            <lv_label x="168" y="8" text="12:30">
+            <lv_label name="label_time" x="168" y="8" text="12:30">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="206" y="8" text="●">
+            <lv_label name="label_comm_dot" x="206" y="8" text="●">
                 <style name="style_text_ok" />
             </lv_label>
-            <lv_label x="220" y="8" text="485">
+            <lv_label name="label_rs485_status" x="220" y="8" text="485">
                 <style name="style_text_muted" />
             </lv_label>
         </lv_obj>
@@ -62,10 +61,10 @@
             <lv_label x="0" y="0" text="当前电压">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="0" y="23" text="220.3 V">
+            <lv_label name="label_voltage_main" x="0" y="23" text="---.- V">
                 <style name="style_text_big_value" />
             </lv_label>
-            <lv_label x="158" y="32" text="正常">
+            <lv_label name="label_voltage_status" x="158" y="32" text="正常">
                 <style name="style_text_ok" />
             </lv_label>
         </lv_obj>
@@ -75,19 +74,19 @@
             <lv_label x="0" y="0" text="Ua">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="34" y="0" text="220.3V">
+            <lv_label name="label_voltage_ua" x="34" y="0" text="---.-V">
                 <style name="style_text_value" />
             </lv_label>
             <lv_label x="0" y="24" text="Ub">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="34" y="24" text="219.8V">
+            <lv_label name="label_voltage_ub" x="34" y="24" text="---.-V">
                 <style name="style_text_value" />
             </lv_label>
             <lv_label x="0" y="48" text="Uc">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="34" y="48" text="221.1V">
+            <lv_label name="label_voltage_uc" x="34" y="48" text="---.-V">
                 <style name="style_text_value" />
             </lv_label>
         </lv_obj>
@@ -97,20 +96,20 @@
             <lv_label x="0" y="0" text="频率">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="0" y="22" text="50.00Hz">
+            <lv_label name="label_frequency" x="0" y="22" text="--.--Hz">
                 <style name="style_text_value" />
             </lv_label>
-            <lv_label x="0" y="48" text="电压状态">
+            <lv_label x="0" y="48" text="状态">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="62" y="48" text="正常">
+            <lv_label name="label_phase_status" x="38" y="48" text="正常">
                 <style name="style_text_ok" />
             </lv_label>
         </lv_obj>
 
         <lv_obj name="hint_card" x="10" y="188" width="220" height="22">
             <style name="style_card" />
-            <lv_label x="0" y="0" text="异常提示：无过压/欠压/断相">
+            <lv_label name="label_voltage_hint" x="0" y="0" text="异常提示：无过压/欠压/断相">
                 <style name="style_text_ok" />
             </lv_label>
         </lv_obj>
@@ -120,17 +119,12 @@
             <lv_label x="8" y="5" text="上/下 切页">
                 <style name="style_text_muted" />
             </lv_label>
-            <lv_label x="92" y="5" text="返回 首页">
+            <lv_label x="92" y="5" text="确认 详情">
                 <style name="style_text_muted" />
             </lv_label>
             <lv_label x="196" y="5" text="2/8">
                 <style name="style_text_ok" />
             </lv_label>
         </lv_obj>
-
-        <lv_button x="0" y="218" width="240" height="22">
-            <style name="style_touch_area" />
-            <screen_create_event screen="screen_home" trigger="clicked" />
-        </lv_button>
     </view>
 </screen>
