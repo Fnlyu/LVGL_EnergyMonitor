@@ -1,0 +1,115 @@
+<screen>
+    <styles>
+        <style name="style_screen_bg" bg_color="0x0b1220" />
+        <style name="style_top_bar" bg_color="0x162033" border_width="0" radius="0" pad_all="0" />
+        <style name="style_card" bg_color="0x111c2e" border_color="0x26384f" border_width="1" radius="8" pad_all="6" />
+        <style name="style_card_main" bg_color="0x10263c" border_color="0x2e5a7a" border_width="1" radius="10" pad_all="8" />
+        <style name="style_bottom_bar" bg_color="0x111827" border_width="0" radius="0" pad_all="0" />
+        <style name="style_text_title" text_color="0xffffff" text_font="font_cn_14" />
+        <style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
+        <style name="style_text_muted" text_color="0x8fa3bf" text_font="font_cn_12" />
+        <style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_24" />
+        <style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
+        <style name="style_text_warn" text_color="0xffd166" text_font="font_cn_12" />
+    </styles>
+
+    <view>
+        <style name="style_screen_bg" />
+
+        <!-- 顶部状态栏：标题 + 时间 + 通信状态 -->
+        <lv_obj x="0" y="0" width="240" height="30">
+            <style name="style_top_bar" />
+            <lv_label x="8" y="7" text="家庭能量监测">
+                <style name="style_text_title" />
+            </lv_label>
+            <lv_label x="168" y="8" text="12:30">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label x="206" y="8" text="●">
+                <style name="style_text_ok" />
+            </lv_label>
+            <lv_label x="220" y="8" text="485">
+                <style name="style_text_muted" />
+            </lv_label>
+        </lv_obj>
+
+        <!-- 当前总功率：首页重点显示 -->
+        <lv_obj x="10" y="38" width="220" height="62">
+            <style name="style_card_main" />
+            <lv_label x="0" y="0" text="当前总功率">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label x="0" y="23" text="3.26 kW">
+                <style name="style_text_value" />
+            </lv_label>
+            <lv_label x="152" y="32" text="负载正常">
+                <style name="style_text_ok" />
+            </lv_label>
+        </lv_obj>
+
+        <!-- 今日 / 本月用电量 -->
+        <lv_obj x="10" y="108" width="105" height="52">
+            <style name="style_card" />
+            <lv_label x="0" y="0" text="今日用电">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label x="0" y="22" text="12.8 kWh">
+                <style name="style_text_normal" />
+            </lv_label>
+        </lv_obj>
+
+        <lv_obj x="125" y="108" width="105" height="52">
+            <style name="style_card" />
+            <lv_label x="0" y="0" text="本月用电">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label x="0" y="22" text="186.5 kWh">
+                <style name="style_text_normal" />
+            </lv_label>
+        </lv_obj>
+
+        <!-- 电网、电价时段、通信状态 -->
+        <lv_obj x="10" y="168" width="220" height="42">
+            <style name="style_card" />
+            <lv_label x="0" y="0" text="电网">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label x="38" y="0" text="正常">
+                <style name="style_text_ok" />
+            </lv_label>
+            <lv_label x="104" y="0" text="时段">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label x="142" y="0" text="谷电">
+                <style name="style_text_warn" />
+            </lv_label>
+
+            <lv_label x="0" y="20" text="WiFi">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label x="38" y="20" text="已连接">
+                <style name="style_text_ok" />
+            </lv_label>
+            <lv_label x="104" y="20" text="BLE">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label x="142" y="20" text="未连接">
+                <style name="style_text_normal" />
+            </lv_label>
+        </lv_obj>
+
+        <!-- 底部按键提示栏 -->
+        <lv_obj x="0" y="218" width="240" height="22">
+            <style name="style_bottom_bar" />
+            <lv_label x="8" y="5" text="上/下 切页">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label x="92" y="5" text="确认 实时测量">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label x="196" y="5" text="首页">
+                <style name="style_text_ok" />
+            </lv_label>
+        </lv_obj>
+    </view>
+</screen>
