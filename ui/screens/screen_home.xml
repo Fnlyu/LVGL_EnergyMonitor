@@ -1,4 +1,11 @@
 <screen>
+    <animations>
+        <timeline name="screen_open">
+            <animation prop="opa" start="0" end="255" duration="250" early_apply="true" target="self" />
+            <animation prop="translate_x" start="-40" end="0" duration="250" early_apply="true" target="self" />
+        </timeline>
+    </animations>
+
     <styles>
         <style name="style_screen_bg" bg_color="0x0b1220" />
         <style name="style_top_bar" bg_color="0x162033" border_width="0" radius="0" pad_all="0" />
@@ -15,6 +22,8 @@
     </styles>
 
     <view>
+        <play_timeline_event target="self" timeline="screen_open" trigger="screen_loaded" />
+
         <style name="style_screen_bg" />
 
         <!-- 顶部状态栏：标题 + 时间 + 通信状态 -->
@@ -99,7 +108,7 @@
             </lv_label>
         </lv_obj>
 
-        <!-- 底部按键提示栏，点击/确认区域进入电压页，带左滑动画 -->
+        <!-- 底部按键提示栏，点击/确认区域进入电压页；目标页通过 timeline 入场 -->
         <lv_obj x="0" y="218" width="240" height="22">
             <style name="style_bottom_bar" />
             <lv_label x="8" y="5" text="上/下 切页">
@@ -115,7 +124,7 @@
 
         <lv_button x="0" y="218" width="240" height="22">
             <style name="style_touch_area" />
-            <screen_create_event screen="screen_voltage" trigger="clicked" anim_type="move_left" />
+            <screen_create_event screen="screen_voltage" trigger="clicked" />
         </lv_button>
     </view>
 </screen>
