@@ -50,7 +50,7 @@
             <lv_label name="label_comm_dot" x="206" y="8" text="●">
                 <style name="style_text_ok" />
             </lv_label>
-            <lv_label name="label_rs485_status" x="220" y="8" text="485">
+            <lv_label name="label_wifi_top_status" x="218" y="8" text="WiFi">
                 <style name="style_text_muted" />
             </lv_label>
         </lv_obj>
