@@ -1,0 +1,187 @@
+<screen>
+    <animations>
+        <timeline name="screen_open">
+            <animation prop="opa" target="top_bar" start="0" end="255" duration="180" delay="0" early_apply="true" />
+            <animation prop="translate_y" target="top_bar" start="-18" end="0" duration="180" delay="0" early_apply="true" />
+
+            <animation prop="opa" target="power_area" start="0" end="255" duration="220" delay="80" early_apply="true" />
+            <animation prop="translate_y" target="power_area" start="-18" end="0" duration="220" delay="80" early_apply="true" />
+
+            <animation prop="opa" target="voltage_card" start="0" end="255" duration="200" delay="160" early_apply="true" />
+            <animation prop="translate_x" target="voltage_card" start="-30" end="0" duration="200" delay="160" early_apply="true" />
+
+            <animation prop="opa" target="current_card" start="0" end="255" duration="200" delay="220" early_apply="true" />
+            <animation prop="translate_y" target="current_card" start="18" end="0" duration="200" delay="220" early_apply="true" />
+
+            <animation prop="opa" target="pf_card" start="0" end="255" duration="200" delay="280" early_apply="true" />
+            <animation prop="translate_x" target="pf_card" start="30" end="0" duration="200" delay="280" early_apply="true" />
+
+            <animation prop="opa" target="energy_flow_area" start="0" end="255" duration="220" delay="360" early_apply="true" />
+            <animation prop="translate_y" target="energy_flow_area" start="22" end="0" duration="220" delay="360" early_apply="true" />
+
+            <animation prop="opa" target="alarm_track" start="0" end="255" duration="180" delay="440" early_apply="true" />
+            <animation prop="opa" target="alarm_dot" start="0" end="255" duration="180" delay="460" early_apply="true" />
+            <animation prop="opa" target="alarm_text" start="0" end="255" duration="180" delay="480" early_apply="true" />
+        </timeline>
+    </animations>
+
+    <styles>
+        <style name="style_screen_bg" bg_color="0x05070a" />
+        <style name="style_inner_panel" bg_color="0x080c12" border_color="0x101a24" border_width="1" radius="10" pad_all="0" />
+        <style name="style_panel" bg_color="0x0b1118" border_color="0x142331" border_width="1" radius="9" pad_all="0" />
+        <style name="style_top_panel" bg_color="0x0b1118" border_color="0x172331" border_width="1" radius="7" pad_all="0" />
+        <style name="style_metric_card" bg_color="0x101821" border_color="0x1a2632" border_width="1" radius="7" pad_all="0" />
+        <style name="style_accent_cyan" bg_color="0x20e6d2" border_width="0" radius="3" pad_all="0" />
+        <style name="style_accent_green" bg_color="0x32f27a" border_width="0" radius="3" pad_all="0" />
+        <style name="style_accent_yellow" bg_color="0xffb020" border_width="0" radius="3" pad_all="0" />
+        <style name="style_divider" bg_color="0x1a2632" border_width="0" radius="0" pad_all="0" />
+        <style name="style_alarm_track" bg_color="0x101821" border_color="0x1a2632" border_width="1" radius="4" pad_all="0" />
+        <style name="style_text_online" text_color="0x32f27a" text_font="font_cn_12" />
+        <style name="style_text_title" text_color="0x7a8a99" text_font="font_cn_12" />
+        <style name="style_text_value" text_color="0xe6eef5" text_font="font_cn_14" />
+        <style name="style_text_value_small" text_color="0xe6eef5" text_font="font_cn_12" />
+        <style name="style_text_big" text_color="0x20e6d2" text_font="font_cn_24" />
+        <style name="style_text_cyan" text_color="0x20e6d2" text_font="font_cn_12" />
+        <style name="style_text_yellow" text_color="0xffb020" text_font="font_cn_12" />
+        <style name="style_text_muted" text_color="0x7a8a99" text_font="font_cn_12" />
+    </styles>
+
+    <view>
+        <play_timeline_event target="self" timeline="screen_open" trigger="screen_loaded" />
+        <style name="style_screen_bg" />
+
+        <!-- Figma: Subtle inner panel, x=4 y=4 w=232 h=232 -->
+        <lv_obj name="inner_panel" x="4" y="4" width="232" height="232">
+            <style name="style_inner_panel" />
+        </lv_obj>
+
+        <!-- Figma: Top Status Bar, x=8 y=8 w=224 h=24 -->
+        <lv_obj name="top_bar" x="8" y="8" width="224" height="24">
+            <style name="style_top_panel" />
+            <lv_obj name="status_dot" x="7" y="8" width="6" height="6">
+                <style name="style_accent_green" />
+            </lv_obj>
+            <lv_label name="label_device_status" x="17" y="5" text="ONLINE">
+                <style name="style_text_online" />
+            </lv_label>
+            <lv_label name="label_time" x="94" y="5" text="14:28">
+                <style name="style_text_value_small" />
+            </lv_label>
+            <lv_label name="label_wifi_icon" x="149" y="5" text="WiFi">
+                <style name="style_text_cyan" />
+            </lv_label>
+            <lv_label name="label_ble_icon" x="176" y="5" text="B">
+                <style name="style_text_muted" />
+            </lv_label>
+            <lv_label name="label_rs485_icon" x="194" y="5" text="485">
+                <style name="style_text_muted" />
+            </lv_label>
+        </lv_obj>
+
+        <!-- Figma: Core Total Power Area, x=8 y=38 w=224 h=70 -->
+        <lv_obj name="power_area" x="8" y="38" width="224" height="70">
+            <style name="style_panel" />
+            <lv_label x="85" y="8" text="TOTAL POWER">
+                <style name="style_text_title" />
+            </lv_label>
+            <lv_label name="label_total_power_value" x="44" y="17" text="3.28">
+                <style name="style_text_big" />
+            </lv_label>
+            <lv_label name="label_total_power_unit" x="152" y="34" text="kW">
+                <style name="style_text_value" />
+            </lv_label>
+            <lv_obj x="80" y="58" width="5" height="5">
+                <style name="style_accent_green" />
+            </lv_obj>
+            <lv_label name="label_alarm_status" x="89" y="53" text="NORMAL">
+                <style name="style_text_online" />
+            </lv_label>
+        </lv_obj>
+
+        <!-- Figma: three metric cards -->
+        <lv_obj name="voltage_card" x="8" y="116" width="70" height="42">
+            <style name="style_metric_card" />
+            <lv_obj x="0" y="0" width="3" height="42">
+                <style name="style_accent_cyan" />
+            </lv_obj>
+            <lv_label x="7" y="5" text="VOLTAGE">
+                <style name="style_text_title" />
+            </lv_label>
+            <lv_label name="label_voltage" x="7" y="20" text="220.3 V">
+                <style name="style_text_value_small" />
+            </lv_label>
+        </lv_obj>
+
+        <lv_obj name="current_card" x="85" y="116" width="70" height="42">
+            <style name="style_metric_card" />
+            <lv_obj x="0" y="0" width="3" height="42">
+                <style name="style_accent_green" />
+            </lv_obj>
+            <lv_label x="7" y="5" text="CURRENT">
+                <style name="style_text_title" />
+            </lv_label>
+            <lv_label name="label_current" x="7" y="20" text="12.6 A">
+                <style name="style_text_value_small" />
+            </lv_label>
+        </lv_obj>
+
+        <lv_obj name="pf_card" x="162" y="116" width="70" height="42">
+            <style name="style_metric_card" />
+            <lv_obj x="0" y="0" width="3" height="42">
+                <style name="style_accent_yellow" />
+            </lv_obj>
+            <lv_label x="7" y="5" text="PF">
+                <style name="style_text_title" />
+            </lv_label>
+            <lv_label name="label_power_factor" x="7" y="18" text="0.98">
+                <style name="style_text_value" />
+            </lv_label>
+        </lv_obj>
+
+        <!-- Figma: Bottom Energy And Flow Area, x=8 y=166 w=224 h=66 -->
+        <lv_obj name="energy_flow_area" x="8" y="166" width="224" height="66">
+            <style name="style_panel" />
+            <lv_label x="10" y="8" text="ENERGY">
+                <style name="style_text_title" />
+            </lv_label>
+            <lv_label name="label_energy" x="10" y="22" text="128.6 kWh">
+                <style name="style_text_value" />
+            </lv_label>
+            <lv_obj x="108" y="10" width="1" height="44">
+                <style name="style_divider" />
+            </lv_obj>
+            <lv_label x="122" y="8" text="PV EXPORT">
+                <style name="style_text_title" />
+            </lv_label>
+            <lv_label name="label_flow_source" x="122" y="28" text="PV">
+                <style name="style_text_yellow" />
+            </lv_label>
+            <lv_obj x="141" y="31" width="6" height="6">
+                <style name="style_accent_yellow" />
+            </lv_obj>
+            <lv_obj name="flow_line" x="146" y="34" width="28" height="2">
+                <style name="style_accent_cyan" />
+            </lv_obj>
+            <lv_label name="flow_arrow_head" x="171" y="28" text=">">
+                <style name="style_text_cyan" />
+            </lv_label>
+            <lv_obj x="176" y="31" width="6" height="6">
+                <style name="style_accent_cyan" />
+            </lv_obj>
+            <lv_label name="label_flow_target" x="185" y="28" text="HOME">
+                <style name="style_text_cyan" />
+            </lv_label>
+        </lv_obj>
+
+        <!-- Figma: Alarm reserved indicator track, x=151 y=219 w=73 h=7 -->
+        <lv_obj name="alarm_track" x="151" y="219" width="73" height="7">
+            <style name="style_alarm_track" />
+        </lv_obj>
+        <lv_obj name="alarm_dot" x="157" y="221" width="3" height="3">
+            <style name="style_accent_green" />
+        </lv_obj>
+        <lv_label name="alarm_text" x="164" y="217" text="ALARM READY">
+            <style name="style_text_muted" />
+        </lv_label>
+    </view>
+</screen>
