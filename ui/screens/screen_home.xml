@@ -1,104 +1,198 @@
 <screen>
-    <animations>
-        <timeline name="screen_open">
-            <animation prop="opa" target="top_bar" start="0" end="255" duration="180" delay="0" early_apply="true" />
-            <animation prop="translate_y" target="top_bar" start="-20" end="0" duration="180" delay="0" early_apply="true" />
+	<animations>
+		<timeline name="screen_open">
+			<animation prop="opa" target="top_bar" start="0" end="255" duration="180" delay="0" early_apply="true" />
+			<animation
+				prop="translate_y"
+				target="top_bar"
+				start="-20"
+				end="0"
+				duration="180"
+				delay="0"
+				early_apply="true"
+			/>
 
-            <animation prop="opa" target="main_card" start="0" end="255" duration="220" delay="80" early_apply="true" />
-            <animation prop="translate_x" target="main_card" start="-40" end="0" duration="220" delay="80" early_apply="true" />
+			<animation prop="opa" target="main_card" start="0" end="255" duration="220" delay="80" early_apply="true" />
+			<animation
+				prop="translate_x"
+				target="main_card"
+				start="-40"
+				end="0"
+				duration="220"
+				delay="80"
+				early_apply="true"
+			/>
 
-            <animation prop="opa" target="today_card" start="0" end="255" duration="220" delay="160" early_apply="true" />
-            <animation prop="translate_x" target="today_card" start="-35" end="0" duration="220" delay="160" early_apply="true" />
+			<animation
+				prop="opa"
+				target="today_card"
+				start="0"
+				end="255"
+				duration="220"
+				delay="160"
+				early_apply="true"
+			/>
+			<animation
+				prop="translate_x"
+				target="today_card"
+				start="-35"
+				end="0"
+				duration="220"
+				delay="160"
+				early_apply="true"
+			/>
 
-            <animation prop="opa" target="month_card" start="0" end="255" duration="220" delay="220" early_apply="true" />
-            <animation prop="translate_x" target="month_card" start="35" end="0" duration="220" delay="220" early_apply="true" />
+			<animation
+				prop="opa"
+				target="month_card"
+				start="0"
+				end="255"
+				duration="220"
+				delay="220"
+				early_apply="true"
+			/>
+			<animation
+				prop="translate_x"
+				target="month_card"
+				start="35"
+				end="0"
+				duration="220"
+				delay="220"
+				early_apply="true"
+			/>
 
-            <animation prop="opa" target="status_card" start="0" end="255" duration="220" delay="300" early_apply="true" />
-            <animation prop="translate_y" target="status_card" start="25" end="0" duration="220" delay="300" early_apply="true" />
+			<animation
+				prop="opa"
+				target="status_card"
+				start="0"
+				end="255"
+				duration="220"
+				delay="300"
+				early_apply="true"
+			/>
+			<animation
+				prop="translate_y"
+				target="status_card"
+				start="25"
+				end="0"
+				duration="220"
+				delay="300"
+				early_apply="true"
+			/>
 
-            <animation prop="opa" target="bottom_bar" start="0" end="255" duration="180" delay="380" early_apply="true" />
-            <animation prop="translate_y" target="bottom_bar" start="20" end="0" duration="180" delay="380" early_apply="true" />
-        </timeline>
-    </animations>
+			<animation
+				prop="opa"
+				target="bottom_bar"
+				start="0"
+				end="255"
+				duration="180"
+				delay="380"
+				early_apply="true"
+			/>
+			<animation
+				prop="translate_y"
+				target="bottom_bar"
+				start="20"
+				end="0"
+				duration="180"
+				delay="380"
+				early_apply="true"
+			/>
+		</timeline>
+	</animations>
 
-    <styles>
-        <style name="style_screen_bg" bg_color="0x0b1220" />
-        <style name="style_card" bg_color="0x111c2e" border_color="0x26384f" border_width="1" radius="8" pad_all="6" />
-        <style name="style_card_main" bg_color="0x10263c" border_color="0x2e5a7a" border_width="1" radius="10" pad_all="8" />
-        <style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
-        <style name="style_text_muted" text_color="0x8fa3bf" text_font="font_cn_12" />
-        <style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_24" />
-        <style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
-        <style name="style_text_warn" text_color="0xffd166" text_font="font_cn_12" />
-    </styles>
+	<styles>
+		<style name="style_screen_bg" bg_color="0x0b1220" />
+		<style name="style_card" bg_color="0x111c2e" border_color="0x26384f" border_width="1" radius="8" pad_all="6" />
+		<style
+			name="style_card_main"
+			bg_color="0x10263c"
+			border_color="0x2e5a7a"
+			border_width="1"
+			radius="10"
+			pad_all="8"
+		/>
+		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
+		<style name="style_text_muted" text_color="0x8fa3bf" text_font="font_cn_12" />
+		<style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_24" />
+		<style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
+		<style name="style_text_warn" text_color="0xffd166" text_font="font_cn_12" />
+	</styles>
 
-    <view>
-        <play_timeline_event target="self" timeline="screen_open" trigger="screen_loaded" />
-        <style name="style_screen_bg" />
+	<view>
+		<play_timeline_event target="self" timeline="screen_open" trigger="screen_loaded" />
+		<style name="style_screen_bg" />
 
-        <top_status_bar name="top_bar" x="0" y="0" title_text="家庭能量监测" time_text="12:30" comm_text="WiFi" />
+		<top_status_bar name="top_bar" x="0" y="0" title_text="家庭能量监测" time_text="12:30" comm_text="WiFi" />
 
-        <lv_obj name="main_card" x="10" y="38" width="220" height="62">
-            <style name="style_card_main" />
-            <lv_label x="0" y="0" text="当前总功率">
-                <style name="style_text_muted" />
-            </lv_label>
-            <lv_label name="label_total_power" x="0" y="23" text="--.-- kW">
-                <style name="style_text_value" />
-            </lv_label>
-            <lv_label name="label_load_status" x="152" y="32" text="负载正常">
-                <style name="style_text_ok" />
-            </lv_label>
-        </lv_obj>
+		<lv_obj name="main_card" x="10" y="38" width="220" height="62">
+			<style name="style_card_main" />
+			<lv_label x="0" y="0" text="当前总功率">
+				<style name="style_text_muted" />
+			</lv_label>
+			<lv_label name="label_total_power" x="0" y="23" text="--.-- kW">
+				<style name="style_text_value" />
+			</lv_label>
+			<lv_label name="label_load_status" x="152" y="32" text="负载正常">
+				<style name="style_text_ok" />
+			</lv_label>
+		</lv_obj>
 
-        <lv_obj name="today_card" x="10" y="108" width="105" height="52">
-            <style name="style_card" />
-            <lv_label x="0" y="0" text="今日用电">
-                <style name="style_text_muted" />
-            </lv_label>
-            <lv_label name="label_today_energy" x="0" y="22" text="--.- kWh">
-                <style name="style_text_normal" />
-            </lv_label>
-        </lv_obj>
+		<lv_obj name="today_card" x="10" y="108" width="105" height="52">
+			<style name="style_card" />
+			<lv_label x="0" y="0" text="今日用电">
+				<style name="style_text_muted" />
+			</lv_label>
+			<lv_label name="label_today_energy" x="0" y="22" text="--.- kWh">
+				<style name="style_text_normal" />
+			</lv_label>
+		</lv_obj>
 
-        <lv_obj name="month_card" x="125" y="108" width="105" height="52">
-            <style name="style_card" />
-            <lv_label x="0" y="0" text="本月用电">
-                <style name="style_text_muted" />
-            </lv_label>
-            <lv_label name="label_month_energy" x="0" y="22" text="---.- kWh">
-                <style name="style_text_normal" />
-            </lv_label>
-        </lv_obj>
+		<lv_obj name="month_card" x="125" y="108" width="105" height="52">
+			<style name="style_card" />
+			<lv_label x="0" y="0" text="本月用电">
+				<style name="style_text_muted" />
+			</lv_label>
+			<lv_label name="label_month_energy" x="0" y="22" text="---.- kWh">
+				<style name="style_text_normal" />
+			</lv_label>
+		</lv_obj>
 
-        <lv_obj name="status_card" x="10" y="168" width="220" height="42">
-            <style name="style_card" />
-            <lv_label x="0" y="0" text="电网">
-                <style name="style_text_muted" />
-            </lv_label>
-            <lv_label name="label_grid_status" x="38" y="0" text="正常">
-                <style name="style_text_ok" />
-            </lv_label>
-            <lv_label x="104" y="0" text="时段">
-                <style name="style_text_muted" />
-            </lv_label>
-            <lv_label name="label_price_period" x="142" y="0" text="谷电">
-                <style name="style_text_warn" />
-            </lv_label>
-            <lv_label x="0" y="20" text="WiFi">
-                <style name="style_text_muted" />
-            </lv_label>
-            <lv_label name="label_wifi_status" x="38" y="20" text="已连接">
-                <style name="style_text_ok" />
-            </lv_label>
-            <lv_label x="104" y="20" text="BLE">
-                <style name="style_text_muted" />
-            </lv_label>
-            <lv_label name="label_ble_status" x="142" y="20" text="未连接">
-                <style name="style_text_normal" />
-            </lv_label>
-        </lv_obj>
+		<lv_obj name="status_card" x="10" y="168" width="220" height="42">
+			<style name="style_card" />
+			<lv_label x="0" y="0" text="电网">
+				<style name="style_text_muted" />
+			</lv_label>
+			<lv_label name="label_grid_status" x="38" y="0" text="正常">
+				<style name="style_text_ok" />
+			</lv_label>
+			<lv_label x="104" y="0" text="时段">
+				<style name="style_text_muted" />
+			</lv_label>
+			<lv_label name="label_price_period" x="142" y="0" text="谷电">
+				<style name="style_text_warn" />
+			</lv_label>
+			<lv_label x="0" y="20" text="WiFi">
+				<style name="style_text_muted" />
+			</lv_label>
+			<lv_label name="label_wifi_status" x="38" y="20" text="已连接">
+				<style name="style_text_ok" />
+			</lv_label>
+			<lv_label x="104" y="20" text="BLE">
+				<style name="style_text_muted" />
+			</lv_label>
+			<lv_label name="label_ble_status" x="142" y="20" text="未连接">
+				<style name="style_text_normal" />
+			</lv_label>
+		</lv_obj>
 
-        <bottom_key_bar name="bottom_bar" x="0" y="218" left_text="上/下 切页" center_text="确认 详情" right_text="1/8" />
-    </view>
+		<bottom_key_bar
+			name="bottom_bar"
+			x="0"
+			y="218"
+			left_text="上/下 切页"
+			center_text="确认 详情"
+			right_text="1/8"
+		/>
+	</view>
 </screen>
