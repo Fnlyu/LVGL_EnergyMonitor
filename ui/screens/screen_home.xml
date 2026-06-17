@@ -173,7 +173,7 @@
 				<style name="style_text_muted" />
 			</lv_label>
 			<lv_obj
-				name="power_row"
+				name="day_power_row"
 				x="10"
 				y="25"
 				width="100"
@@ -187,11 +187,11 @@
 				style_pad_all="0"
 				style_pad_column="0"
 			>
-				<lv_label name="label_total_power" text="6722.33">
+				<lv_label name="label_day_power" text="6722.33">
 					<style name="style_text_value_xiao" />
 				</lv_label>
 
-				<lv_label name="label_total_power_unit" text="KW">
+				<lv_label name="label_day_power_unit" text="KW">
 					<style name="style_text_value_xiao" />
 				</lv_label>
 			</lv_obj>
@@ -206,7 +206,7 @@
 				<style name="style_text_muted" />
 			</lv_label>
 			<lv_obj
-				name="power_row"
+				name="month_power_row"
 				x="10"
 				y="25"
 				width="100"
@@ -220,11 +220,11 @@
 				style_pad_all="0"
 				style_pad_column="0"
 			>
-				<lv_label name="label_total_power" text="6722.33">
+				<lv_label name="label_month_power" text="6722.33">
 					<style name="style_text_value_xiao" />
 				</lv_label>
 
-				<lv_label name="label_total_power_unit" text="KW">
+				<lv_label name="label_month_power_unit" text="KW">
 					<style name="style_text_value_xiao" />
 				</lv_label>
 			</lv_obj>
