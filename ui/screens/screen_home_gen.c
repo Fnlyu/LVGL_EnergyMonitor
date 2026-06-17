@@ -43,6 +43,7 @@ lv_obj_t * screen_home_create(void)
     static lv_style_t style_text_normal;
     static lv_style_t style_text_muted;
     static lv_style_t style_text_biaoti_da;
+    static lv_style_t style_text_value_xiao;
     static lv_style_t style_text_value;
     static lv_style_t style_text_value_KW;
     static lv_style_t style_text_ok;
@@ -77,11 +78,15 @@ lv_obj_t * screen_home_create(void)
 
         lv_style_init(&style_text_muted);
         lv_style_set_text_color(&style_text_muted, lv_color_hex(0xbfd6ec));
-        lv_style_set_text_font(&style_text_muted, font_cn_14);
+        lv_style_set_text_font(&style_text_muted, font_cn_16);
 
         lv_style_init(&style_text_biaoti_da);
         lv_style_set_text_color(&style_text_biaoti_da, lv_color_hex(0xbfd6ec));
         lv_style_set_text_font(&style_text_biaoti_da, font_cn_18);
+
+        lv_style_init(&style_text_value_xiao);
+        lv_style_set_text_color(&style_text_value_xiao, lv_color_hex(0xe6eef5));
+        lv_style_set_text_font(&style_text_value_xiao, font_cn_16);
 
         lv_style_init(&style_text_value);
         lv_style_set_text_color(&style_text_value, lv_color_hex(0x20e6d2));
@@ -173,13 +178,14 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_x(today_card, 10);
     lv_obj_set_y(today_card, 140);
     lv_obj_set_width(today_card, 105);
-    lv_obj_set_height(today_card, 60);
+    lv_obj_set_height(today_card, 70);
+    lv_obj_set_flag(today_card, LV_OBJ_FLAG_SCROLLABLE, false);
     lv_obj_add_style(today_card, &style_card, 0);
     lv_obj_t * lv_obj_1 = lv_obj_create(today_card);
     lv_obj_set_x(lv_obj_1, 0);
     lv_obj_set_y(lv_obj_1, 0);
     lv_obj_set_width(lv_obj_1, 3);
-    lv_obj_set_height(lv_obj_1, 42);
+    lv_obj_set_height(lv_obj_1, 52);
     lv_obj_add_style(lv_obj_1, &style_accent_yellow, 0);
     
     lv_obj_t * lv_label_1 = lv_label_create(today_card);
@@ -188,25 +194,43 @@ lv_obj_t * screen_home_create(void)
     lv_label_set_text(lv_label_1, "今日用电");
     lv_obj_add_style(lv_label_1, &style_text_muted, 0);
     
-    lv_obj_t * label_today_energy = lv_label_create(today_card);
-    lv_obj_set_name(label_today_energy, "label_today_energy");
-    lv_obj_set_x(label_today_energy, 10);
-    lv_obj_set_y(label_today_energy, 22);
-    lv_label_set_text(label_today_energy, "--.- kWh");
-    lv_obj_add_style(label_today_energy, &style_text_normal, 0);
+    lv_obj_t * power_row = lv_obj_create(today_card);
+    lv_obj_set_name(power_row, "power_row");
+    lv_obj_set_x(power_row, 10);
+    lv_obj_set_y(power_row, 25);
+    lv_obj_set_width(power_row, 100);
+    lv_obj_set_height(power_row, 20);
+    lv_obj_set_flag(power_row, LV_OBJ_FLAG_SCROLLABLE, false);
+    lv_obj_set_flex_flow(power_row, LV_FLEX_FLOW_ROW);
+    lv_obj_set_style_flex_main_place(power_row, LV_FLEX_ALIGN_START, 0);
+    lv_obj_set_style_flex_cross_place(power_row, LV_FLEX_ALIGN_CENTER, 0);
+    lv_obj_set_style_bg_opa(power_row, 0, 0);
+    lv_obj_set_style_border_width(power_row, 0, 0);
+    lv_obj_set_style_pad_all(power_row, 0, 0);
+    lv_obj_set_style_pad_column(power_row, 0, 0);
+    lv_obj_t * label_total_power = lv_label_create(power_row);
+    lv_obj_set_name(label_total_power, "label_total_power");
+    lv_label_set_text(label_total_power, "6722.33");
+    lv_obj_add_style(label_total_power, &style_text_value_xiao, 0);
+    
+    lv_obj_t * label_total_power_unit = lv_label_create(power_row);
+    lv_obj_set_name(label_total_power_unit, "label_total_power_unit");
+    lv_label_set_text(label_total_power_unit, "KW");
+    lv_obj_add_style(label_total_power_unit, &style_text_value_xiao, 0);
     
     lv_obj_t * month_card = lv_obj_create(lv_obj_0);
     lv_obj_set_name(month_card, "month_card");
     lv_obj_set_x(month_card, 125);
     lv_obj_set_y(month_card, 140);
     lv_obj_set_width(month_card, 105);
-    lv_obj_set_height(month_card, 60);
+    lv_obj_set_height(month_card, 70);
+    lv_obj_set_flag(month_card, LV_OBJ_FLAG_SCROLLABLE, false);
     lv_obj_add_style(month_card, &style_card, 0);
     lv_obj_t * lv_obj_2 = lv_obj_create(month_card);
     lv_obj_set_x(lv_obj_2, 0);
     lv_obj_set_y(lv_obj_2, 0);
     lv_obj_set_width(lv_obj_2, 3);
-    lv_obj_set_height(lv_obj_2, 42);
+    lv_obj_set_height(lv_obj_2, 52);
     lv_obj_add_style(lv_obj_2, &style_accent_green, 0);
     
     lv_obj_t * lv_label_2 = lv_label_create(month_card);
@@ -215,12 +239,29 @@ lv_obj_t * screen_home_create(void)
     lv_label_set_text(lv_label_2, "本月用电");
     lv_obj_add_style(lv_label_2, &style_text_muted, 0);
     
-    lv_obj_t * label_month_energy = lv_label_create(month_card);
-    lv_obj_set_name(label_month_energy, "label_month_energy");
-    lv_obj_set_x(label_month_energy, 10);
-    lv_obj_set_y(label_month_energy, 22);
-    lv_label_set_text(label_month_energy, "---.- kWh");
-    lv_obj_add_style(label_month_energy, &style_text_normal, 0);
+    lv_obj_t * power_row = lv_obj_create(month_card);
+    lv_obj_set_name(power_row, "power_row");
+    lv_obj_set_x(power_row, 10);
+    lv_obj_set_y(power_row, 25);
+    lv_obj_set_width(power_row, 100);
+    lv_obj_set_height(power_row, 20);
+    lv_obj_set_flag(power_row, LV_OBJ_FLAG_SCROLLABLE, false);
+    lv_obj_set_flex_flow(power_row, LV_FLEX_FLOW_ROW);
+    lv_obj_set_style_flex_main_place(power_row, LV_FLEX_ALIGN_START, 0);
+    lv_obj_set_style_flex_cross_place(power_row, LV_FLEX_ALIGN_CENTER, 0);
+    lv_obj_set_style_bg_opa(power_row, 0, 0);
+    lv_obj_set_style_border_width(power_row, 0, 0);
+    lv_obj_set_style_pad_all(power_row, 0, 0);
+    lv_obj_set_style_pad_column(power_row, 0, 0);
+    lv_obj_t * label_total_power = lv_label_create(power_row);
+    lv_obj_set_name(label_total_power, "label_total_power");
+    lv_label_set_text(label_total_power, "6722.33");
+    lv_obj_add_style(label_total_power, &style_text_value_xiao, 0);
+    
+    lv_obj_t * label_total_power_unit = lv_label_create(power_row);
+    lv_obj_set_name(label_total_power_unit, "label_total_power_unit");
+    lv_label_set_text(label_total_power_unit, "KW");
+    lv_obj_add_style(label_total_power_unit, &style_text_value_xiao, 0);
     
     lv_obj_t * bottom_bar = bottom_key_bar_create(lv_obj_0, "上/下 切页", "确认 详情", "1/8");
     lv_obj_set_name(bottom_bar, "bottom_bar");

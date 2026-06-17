@@ -59,6 +59,8 @@ extern lv_font_t * font_cn_12;
 
 extern lv_font_t * font_cn_14;
 
+extern lv_font_t * font_cn_16;
+
 extern lv_font_t * font_cn_18;
 
 extern lv_font_t * font_cn_24;

@@ -6,6 +6,7 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/components/top_status_bar/top_status_bar_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_12_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_14_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_16_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_18_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_24_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_34_data.c
