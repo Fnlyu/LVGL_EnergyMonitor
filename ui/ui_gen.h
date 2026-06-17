@@ -63,6 +63,8 @@ extern lv_font_t * font_cn_18;
 
 extern lv_font_t * font_cn_24;
 
+extern lv_font_t * font_cn_30;
+
 /*----------------
  * Images
  *----------------*/
@@ -98,6 +100,7 @@ void ui_init_gen(const char * asset_path);
 #include "components/top_status_bar/top_status_bar_gen.h"
 #include "screens/screen_home_gen.h"
 #include "screens/screen_voltage_gen.h"
+#include "screens/screen_wt3213_gen.h"
 
 #ifdef __cplusplus
 } /*extern "C"*/

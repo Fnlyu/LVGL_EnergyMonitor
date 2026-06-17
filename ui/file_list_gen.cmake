@@ -8,7 +8,9 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_14_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_18_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_24_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_30_data.c
   ${CMAKE_CURRENT_LIST_DIR}/screens/screen_home_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/screens/screen_voltage_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_wt3213_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/ui_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/ui.c)

@@ -114,9 +114,13 @@
 		/>
 		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
 		<style name="style_text_muted" text_color="0x8fa3bf" text_font="font_cn_12" />
-		<style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_24" />
+		<style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_30" />
 		<style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
 		<style name="style_text_warn" text_color="0xffd166" text_font="font_cn_12" />
+
+		<style name="style_accent_cyan" bg_color="0x20e6d2" border_width="0" radius="3" pad_all="0" />
+		<style name="style_accent_green" bg_color="0x32f27a" border_width="0" radius="3" pad_all="0" />
+		<style name="style_accent_yellow" bg_color="0xffb020" border_width="0" radius="3" pad_all="0" />
 	</styles>
 
 	<view>
@@ -125,30 +129,30 @@
 
 		<top_status_bar name="top_bar" x="0" y="0" title_text="家庭能量监测" time_text="12:30" comm_text="WiFi" />
 
-		<lv_obj name="main_card" x="10" y="38" width="220" height="62">
+		<lv_obj name="main_card" x="10" y="38" width="220" height="92">
 			<style name="style_card_main" />
-			<lv_label x="0" y="0" text="当前总功率">
+			<lv_label x="70" y="0" text="当前总功率">
 				<style name="style_text_muted" />
 			</lv_label>
-			<lv_label name="label_total_power" x="0" y="23" text="--.-- kW">
+			<lv_label name="label_total_power" x="60" y="33" text="--.-- kW">
 				<style name="style_text_value" />
-			</lv_label>
-			<lv_label name="label_load_status" x="152" y="32" text="负载正常">
-				<style name="style_text_ok" />
 			</lv_label>
 		</lv_obj>
 
-		<lv_obj name="today_card" x="10" y="108" width="105" height="52">
+		<lv_obj name="today_card" x="10" y="140" width="105" height="60">
 			<style name="style_card" />
-			<lv_label x="0" y="0" text="今日用电">
+			<lv_obj x="0" y="0" width="3" height="42">
+				<style name="style_accent_yellow" />
+			</lv_obj>
+			<lv_label x="10" y="0" text="今日用电">
 				<style name="style_text_muted" />
 			</lv_label>
-			<lv_label name="label_today_energy" x="0" y="22" text="--.- kWh">
+			<lv_label name="label_today_energy" x="10" y="22" text="--.- kWh">
 				<style name="style_text_normal" />
 			</lv_label>
 		</lv_obj>
 
-		<lv_obj name="month_card" x="125" y="108" width="105" height="52">
+		<lv_obj name="month_card" x="125" y="140" width="105" height="60">
 			<style name="style_card" />
 			<lv_label x="0" y="0" text="本月用电">
 				<style name="style_text_muted" />
@@ -157,7 +161,7 @@
 				<style name="style_text_normal" />
 			</lv_label>
 		</lv_obj>
-
+		<!-- 
 		<lv_obj name="status_card" x="10" y="168" width="220" height="42">
 			<style name="style_card" />
 			<lv_label x="0" y="0" text="电网">
@@ -184,7 +188,7 @@
 			<lv_label name="label_ble_status" x="142" y="20" text="未连接">
 				<style name="style_text_normal" />
 			</lv_label>
-		</lv_obj>
+		</lv_obj> -->
 
 		<bottom_key_bar
 			name="bottom_bar"
