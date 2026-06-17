@@ -133,6 +133,8 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_name(top_bar, "top_bar");
     lv_obj_set_x(top_bar, 0);
     lv_obj_set_y(top_bar, 0);
+    lv_obj_set_style_opa(top_bar, 0, 0);
+    lv_obj_set_style_translate_y(top_bar, -20, 0);
     
     lv_obj_t * main_card = lv_obj_create(lv_obj_0);
     lv_obj_set_name(main_card, "main_card");
@@ -140,6 +142,8 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_y(main_card, 38);
     lv_obj_set_width(main_card, 220);
     lv_obj_set_height(main_card, 92);
+    lv_obj_set_style_opa(main_card, 0, 0);
+    lv_obj_set_style_translate_x(main_card, -40, 0);
     lv_obj_add_style(main_card, &style_card_main, 0);
     lv_obj_t * lv_label_0 = lv_label_create(main_card);
     lv_obj_set_x(lv_label_0, 0);
@@ -180,6 +184,8 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_width(today_card, 105);
     lv_obj_set_height(today_card, 70);
     lv_obj_set_flag(today_card, LV_OBJ_FLAG_SCROLLABLE, false);
+    lv_obj_set_style_opa(today_card, 0, 0);
+    lv_obj_set_style_translate_x(today_card, -35, 0);
     lv_obj_add_style(today_card, &style_card, 0);
     lv_obj_t * lv_obj_1 = lv_obj_create(today_card);
     lv_obj_set_x(lv_obj_1, 0);
@@ -225,6 +231,8 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_width(month_card, 105);
     lv_obj_set_height(month_card, 70);
     lv_obj_set_flag(month_card, LV_OBJ_FLAG_SCROLLABLE, false);
+    lv_obj_set_style_opa(month_card, 0, 0);
+    lv_obj_set_style_translate_x(month_card, 35, 0);
     lv_obj_add_style(month_card, &style_card, 0);
     lv_obj_t * lv_obj_2 = lv_obj_create(month_card);
     lv_obj_set_x(lv_obj_2, 0);
@@ -267,6 +275,8 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_name(bottom_bar, "bottom_bar");
     lv_obj_set_x(bottom_bar, 0);
     lv_obj_set_y(bottom_bar, 218);
+    lv_obj_set_style_opa(bottom_bar, 0, 0);
+    lv_obj_set_style_translate_y(bottom_bar, 20, 0);
     
     
     /* create animation timeline(s) */
@@ -275,7 +285,7 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_user_data(lv_obj_0, at_array);
     lv_obj_add_event_cb(lv_obj_0, free_timeline_event_cb, LV_EVENT_DELETE, at_array);
 
-    lv_obj_add_play_timeline_event(lv_obj_0, LV_EVENT_SCREEN_LOADED, screen_home_get_timeline(lv_obj_0, SCREEN_HOME_TIMELINE_SCREEN_OPEN), 0, false);
+    lv_obj_add_play_timeline_event(lv_obj_0, LV_EVENT_SCREEN_LOAD_START, screen_home_get_timeline(lv_obj_0, SCREEN_HOME_TIMELINE_SCREEN_OPEN), 0, false);
 
     LV_TRACE_OBJ_CREATE("finished");
 

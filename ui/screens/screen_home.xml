@@ -108,12 +108,21 @@
 	</styles>
 
 	<view>
-		<play_timeline_event target="self" timeline="screen_open" trigger="screen_loaded" />
+		<play_timeline_event target="self" timeline="screen_open" trigger="screen_load_start" />
 		<style name="style_screen_bg" />
 
-		<top_status_bar name="top_bar" x="0" y="0" title_text="家庭能量监测" time_text="12:30" comm_text="WiFi" />
+		<top_status_bar
+			name="top_bar"
+			x="0"
+			y="0"
+			title_text="家庭能量监测"
+			time_text="12:30"
+			comm_text="WiFi"
+			style_opa="0"
+			style_translate_y="-20"
+		/>
 
-		<lv_obj name="main_card" x="10" y="38" width="220" height="92">
+		<lv_obj name="main_card" x="10" y="38" width="220" height="92" style_opa="0" style_translate_x="-40">
 			<style name="style_card_main" />
 
 			<lv_label x="0" y="2" width="200" text="当前总功率" style_text_align="center">
@@ -145,7 +154,16 @@
 			</lv_obj>
 		</lv_obj>
 
-		<lv_obj name="today_card" x="10" y="140" width="105" height="70" scrollable="false">
+		<lv_obj
+			name="today_card"
+			x="10"
+			y="140"
+			width="105"
+			height="70"
+			scrollable="false"
+			style_opa="0"
+			style_translate_x="-35"
+		>
 			<style name="style_card" />
 			<lv_obj x="0" y="0" width="3" height="52">
 				<style name="style_accent_yellow" />
@@ -178,7 +196,16 @@
 			</lv_obj>
 		</lv_obj>
 
-		<lv_obj name="month_card" x="125" y="140" width="105" height="70" scrollable="false">
+		<lv_obj
+			name="month_card"
+			x="125"
+			y="140"
+			width="105"
+			height="70"
+			scrollable="false"
+			style_opa="0"
+			style_translate_x="35"
+		>
 			<style name="style_card" />
 			<lv_obj x="0" y="0" width="3" height="52">
 				<style name="style_accent_green" />
@@ -210,34 +237,6 @@
 				</lv_label>
 			</lv_obj>
 		</lv_obj>
-		<!-- 
-		<lv_obj name="status_card" x="10" y="168" width="220" height="42">
-			<style name="style_card" />
-			<lv_label x="0" y="0" text="电网">
-				<style name="style_text_muted" />
-			</lv_label>
-			<lv_label name="label_grid_status" x="38" y="0" text="正常">
-				<style name="style_text_ok" />
-			</lv_label>
-			<lv_label x="104" y="0" text="时段">
-				<style name="style_text_muted" />
-			</lv_label>
-			<lv_label name="label_price_period" x="142" y="0" text="谷电">
-				<style name="style_text_warn" />
-			</lv_label>
-			<lv_label x="0" y="20" text="WiFi">
-				<style name="style_text_muted" />
-			</lv_label>
-			<lv_label name="label_wifi_status" x="38" y="20" text="已连接">
-				<style name="style_text_ok" />
-			</lv_label>
-			<lv_label x="104" y="20" text="BLE">
-				<style name="style_text_muted" />
-			</lv_label>
-			<lv_label name="label_ble_status" x="142" y="20" text="未连接">
-				<style name="style_text_normal" />
-			</lv_label>
-		</lv_obj> -->
 
 		<bottom_key_bar
 			name="bottom_bar"
@@ -246,6 +245,8 @@
 			left_text="上/下 切页"
 			center_text="确认 详情"
 			right_text="1/8"
+			style_opa="0"
+			style_translate_y="20"
 		/>
 	</view>
 </screen>
