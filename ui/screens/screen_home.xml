@@ -1,25 +1,25 @@
 <screen>
 	<animations>
 		<timeline name="screen_open">
-			<animation prop="opa" target="top_bar" start="0" end="255" duration="90" delay="0" early_apply="true" />
+			<animation prop="opa" target="top_bar" start="0" end="255" duration="180" delay="0" early_apply="true" />
 			<animation
 				prop="translate_y"
 				target="top_bar"
 				start="-20"
 				end="0"
-				duration="90"
+				duration="180"
 				delay="0"
 				early_apply="true"
 			/>
 
-			<animation prop="opa" target="main_card" start="0" end="255" duration="120" delay="40" early_apply="true" />
+			<animation prop="opa" target="main_card" start="0" end="255" duration="220" delay="80" early_apply="true" />
 			<animation
 				prop="translate_x"
 				target="main_card"
 				start="-40"
 				end="0"
-				duration="120"
-				delay="40"
+				duration="220"
+				delay="80"
 				early_apply="true"
 			/>
 
@@ -28,8 +28,8 @@
 				target="today_card"
 				start="0"
 				end="255"
-				duration="120"
-				delay="80"
+				duration="220"
+				delay="160"
 				early_apply="true"
 			/>
 			<animation
@@ -37,8 +37,8 @@
 				target="today_card"
 				start="-35"
 				end="0"
-				duration="120"
-				delay="80"
+				duration="220"
+				delay="160"
 				early_apply="true"
 			/>
 
@@ -47,8 +47,8 @@
 				target="month_card"
 				start="0"
 				end="255"
-				duration="120"
-				delay="110"
+				duration="220"
+				delay="220"
 				early_apply="true"
 			/>
 			<animation
@@ -56,8 +56,8 @@
 				target="month_card"
 				start="35"
 				end="0"
-				duration="120"
-				delay="110"
+				duration="220"
+				delay="220"
 				early_apply="true"
 			/>
 
@@ -66,8 +66,8 @@
 				target="bottom_bar"
 				start="0"
 				end="255"
-				duration="100"
-				delay="180"
+				duration="180"
+				delay="380"
 				early_apply="true"
 			/>
 			<animation
@@ -75,8 +75,8 @@
 				target="bottom_bar"
 				start="20"
 				end="0"
-				duration="100"
-				delay="180"
+				duration="180"
+				delay="380"
 				early_apply="true"
 			/>
 		</timeline>
