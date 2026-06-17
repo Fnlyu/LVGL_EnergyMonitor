@@ -113,7 +113,8 @@
 			pad_all="8"
 		/>
 		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
-		<style name="style_text_muted" text_color="0x7a8a99" text_font="font_cn_14" />
+		<style name="style_text_muted" text_color="0xbfd6ec" text_font="font_cn_14" />
+		<style name="style_text_biaoti_da" text_color="0xbfd6ec" text_font="font_cn_18" />
 		<style name="style_text_value" text_color="0x20e6d2" text_font="font_cn_34" />
 		<style name="style_text_value_KW" text_color="0xe6eef5" text_font="font_cn_34" />
 		<style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
@@ -133,16 +134,17 @@
 		<lv_obj name="main_card" x="10" y="38" width="220" height="92">
 			<style name="style_card_main" />
 
-			<lv_label x="0" y="5" width="200" text="当前总功率" style_text_align="center">
-				<style name="style_text_muted" />
+			<lv_label x="0" y="2" width="200" text="当前总功率" style_text_align="center">
+				<style name="style_text_biaoti_da" />
 			</lv_label>
 
 			<lv_obj
 				name="power_row"
 				x="0"
-				y="33"
+				y="30"
 				width="200"
 				height="40"
+				scrollable="false"
 				flex_flow="row"
 				style_flex_main_place="center"
 				style_flex_cross_place="center"
@@ -151,7 +153,7 @@
 				style_pad_all="0"
 				style_pad_column="0"
 			>
-				<lv_label name="label_total_power" text="12.34 ">
+				<lv_label name="label_total_power" text="6722.33">
 					<style name="style_text_value" />
 				</lv_label>
 
