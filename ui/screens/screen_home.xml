@@ -61,7 +61,7 @@
 				early_apply="true"
 			/>
 
-			<animation
+			<!-- <animation
 				prop="opa"
 				target="status_card"
 				start="0"
@@ -78,7 +78,7 @@
 				duration="220"
 				delay="300"
 				early_apply="true"
-			/>
+			/> -->
 
 			<animation
 				prop="opa"
@@ -154,10 +154,13 @@
 
 		<lv_obj name="month_card" x="125" y="140" width="105" height="60">
 			<style name="style_card" />
-			<lv_label x="0" y="0" text="本月用电">
+			<lv_obj x="0" y="0" width="3" height="42">
+				<style name="style_accent_green" />
+			</lv_obj>
+			<lv_label x="10" y="0" text="本月用电">
 				<style name="style_text_muted" />
 			</lv_label>
-			<lv_label name="label_month_energy" x="0" y="22" text="---.- kWh">
+			<lv_label name="label_month_energy" x="10" y="22" text="---.- kWh">
 				<style name="style_text_normal" />
 			</lv_label>
 		</lv_obj>

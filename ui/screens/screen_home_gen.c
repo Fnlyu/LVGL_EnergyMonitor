@@ -173,15 +173,22 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_width(month_card, 105);
     lv_obj_set_height(month_card, 60);
     lv_obj_add_style(month_card, &style_card, 0);
+    lv_obj_t * lv_obj_2 = lv_obj_create(month_card);
+    lv_obj_set_x(lv_obj_2, 0);
+    lv_obj_set_y(lv_obj_2, 0);
+    lv_obj_set_width(lv_obj_2, 3);
+    lv_obj_set_height(lv_obj_2, 42);
+    lv_obj_add_style(lv_obj_2, &style_accent_green, 0);
+    
     lv_obj_t * lv_label_2 = lv_label_create(month_card);
-    lv_obj_set_x(lv_label_2, 0);
+    lv_obj_set_x(lv_label_2, 10);
     lv_obj_set_y(lv_label_2, 0);
     lv_label_set_text(lv_label_2, "本月用电");
     lv_obj_add_style(lv_label_2, &style_text_muted, 0);
     
     lv_obj_t * label_month_energy = lv_label_create(month_card);
     lv_obj_set_name(label_month_energy, "label_month_energy");
-    lv_obj_set_x(label_month_energy, 0);
+    lv_obj_set_x(label_month_energy, 10);
     lv_obj_set_y(label_month_energy, 22);
     lv_label_set_text(label_month_energy, "---.- kWh");
     lv_obj_add_style(label_month_energy, &style_text_normal, 0);
@@ -319,26 +326,6 @@ static lv_anim_timeline_t * timeline_screen_open_create(lv_obj_t * obj)
     lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
     lv_anim_set_early_apply(&a, true);
     lv_anim_timeline_add(at, 220, &a);
-
-    selector_and_prop = ((LV_STYLE_OPA & 0xff) << 24) | 0;
-    lv_anim_init(&a);
-    lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
-    lv_anim_set_var(&a, lv_obj_find_by_name(obj, "status_card"));
-    lv_anim_set_values(&a, 0, 255);
-    lv_anim_set_duration(&a, 220);
-    lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
-    lv_anim_set_early_apply(&a, true);
-    lv_anim_timeline_add(at, 300, &a);
-
-    selector_and_prop = ((LV_STYLE_TRANSLATE_Y & 0xff) << 24) | 0;
-    lv_anim_init(&a);
-    lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
-    lv_anim_set_var(&a, lv_obj_find_by_name(obj, "status_card"));
-    lv_anim_set_values(&a, 25, 0);
-    lv_anim_set_duration(&a, 220);
-    lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
-    lv_anim_set_early_apply(&a, true);
-    lv_anim_timeline_add(at, 300, &a);
 
     selector_and_prop = ((LV_STYLE_OPA & 0xff) << 24) | 0;
     lv_anim_init(&a);
