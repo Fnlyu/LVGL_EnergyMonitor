@@ -322,7 +322,7 @@ static lv_anim_timeline_t * timeline_screen_open_create(lv_obj_t * obj)
     lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
     lv_anim_set_var(&a, lv_obj_find_by_name(obj, "top_bar"));
     lv_anim_set_values(&a, 0, 255);
-    lv_anim_set_duration(&a, 180);
+    lv_anim_set_duration(&a, 90);
     lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
     lv_anim_set_early_apply(&a, true);
     lv_anim_timeline_add(at, 0, &a);
@@ -332,7 +332,7 @@ static lv_anim_timeline_t * timeline_screen_open_create(lv_obj_t * obj)
     lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
     lv_anim_set_var(&a, lv_obj_find_by_name(obj, "top_bar"));
     lv_anim_set_values(&a, -20, 0);
-    lv_anim_set_duration(&a, 180);
+    lv_anim_set_duration(&a, 90);
     lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
     lv_anim_set_early_apply(&a, true);
     lv_anim_timeline_add(at, 0, &a);
@@ -342,17 +342,37 @@ static lv_anim_timeline_t * timeline_screen_open_create(lv_obj_t * obj)
     lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
     lv_anim_set_var(&a, lv_obj_find_by_name(obj, "main_card"));
     lv_anim_set_values(&a, 0, 255);
-    lv_anim_set_duration(&a, 220);
+    lv_anim_set_duration(&a, 120);
     lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
     lv_anim_set_early_apply(&a, true);
-    lv_anim_timeline_add(at, 80, &a);
+    lv_anim_timeline_add(at, 40, &a);
 
     selector_and_prop = ((LV_STYLE_TRANSLATE_X & 0xff) << 24) | 0;
     lv_anim_init(&a);
     lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
     lv_anim_set_var(&a, lv_obj_find_by_name(obj, "main_card"));
     lv_anim_set_values(&a, -40, 0);
-    lv_anim_set_duration(&a, 220);
+    lv_anim_set_duration(&a, 120);
+    lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
+    lv_anim_set_early_apply(&a, true);
+    lv_anim_timeline_add(at, 40, &a);
+
+    selector_and_prop = ((LV_STYLE_OPA & 0xff) << 24) | 0;
+    lv_anim_init(&a);
+    lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
+    lv_anim_set_var(&a, lv_obj_find_by_name(obj, "today_card"));
+    lv_anim_set_values(&a, 0, 255);
+    lv_anim_set_duration(&a, 120);
+    lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
+    lv_anim_set_early_apply(&a, true);
+    lv_anim_timeline_add(at, 80, &a);
+
+    selector_and_prop = ((LV_STYLE_TRANSLATE_X & 0xff) << 24) | 0;
+    lv_anim_init(&a);
+    lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
+    lv_anim_set_var(&a, lv_obj_find_by_name(obj, "today_card"));
+    lv_anim_set_values(&a, -35, 0);
+    lv_anim_set_duration(&a, 120);
     lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
     lv_anim_set_early_apply(&a, true);
     lv_anim_timeline_add(at, 80, &a);
@@ -360,62 +380,42 @@ static lv_anim_timeline_t * timeline_screen_open_create(lv_obj_t * obj)
     selector_and_prop = ((LV_STYLE_OPA & 0xff) << 24) | 0;
     lv_anim_init(&a);
     lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
-    lv_anim_set_var(&a, lv_obj_find_by_name(obj, "today_card"));
-    lv_anim_set_values(&a, 0, 255);
-    lv_anim_set_duration(&a, 220);
-    lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
-    lv_anim_set_early_apply(&a, true);
-    lv_anim_timeline_add(at, 160, &a);
-
-    selector_and_prop = ((LV_STYLE_TRANSLATE_X & 0xff) << 24) | 0;
-    lv_anim_init(&a);
-    lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
-    lv_anim_set_var(&a, lv_obj_find_by_name(obj, "today_card"));
-    lv_anim_set_values(&a, -35, 0);
-    lv_anim_set_duration(&a, 220);
-    lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
-    lv_anim_set_early_apply(&a, true);
-    lv_anim_timeline_add(at, 160, &a);
-
-    selector_and_prop = ((LV_STYLE_OPA & 0xff) << 24) | 0;
-    lv_anim_init(&a);
-    lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
     lv_anim_set_var(&a, lv_obj_find_by_name(obj, "month_card"));
     lv_anim_set_values(&a, 0, 255);
-    lv_anim_set_duration(&a, 220);
+    lv_anim_set_duration(&a, 120);
     lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
     lv_anim_set_early_apply(&a, true);
-    lv_anim_timeline_add(at, 220, &a);
+    lv_anim_timeline_add(at, 110, &a);
 
     selector_and_prop = ((LV_STYLE_TRANSLATE_X & 0xff) << 24) | 0;
     lv_anim_init(&a);
     lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
     lv_anim_set_var(&a, lv_obj_find_by_name(obj, "month_card"));
     lv_anim_set_values(&a, 35, 0);
-    lv_anim_set_duration(&a, 220);
+    lv_anim_set_duration(&a, 120);
     lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
     lv_anim_set_early_apply(&a, true);
-    lv_anim_timeline_add(at, 220, &a);
+    lv_anim_timeline_add(at, 110, &a);
 
     selector_and_prop = ((LV_STYLE_OPA & 0xff) << 24) | 0;
     lv_anim_init(&a);
     lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
     lv_anim_set_var(&a, lv_obj_find_by_name(obj, "bottom_bar"));
     lv_anim_set_values(&a, 0, 255);
-    lv_anim_set_duration(&a, 180);
+    lv_anim_set_duration(&a, 100);
     lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
     lv_anim_set_early_apply(&a, true);
-    lv_anim_timeline_add(at, 380, &a);
+    lv_anim_timeline_add(at, 180, &a);
 
     selector_and_prop = ((LV_STYLE_TRANSLATE_Y & 0xff) << 24) | 0;
     lv_anim_init(&a);
     lv_anim_set_custom_exec_cb(&a, int_anim_exec_cb);
     lv_anim_set_var(&a, lv_obj_find_by_name(obj, "bottom_bar"));
     lv_anim_set_values(&a, 20, 0);
-    lv_anim_set_duration(&a, 180);
+    lv_anim_set_duration(&a, 100);
     lv_anim_set_user_data(&a, (void *)((uintptr_t)selector_and_prop));
     lv_anim_set_early_apply(&a, true);
-    lv_anim_timeline_add(at, 380, &a);
+    lv_anim_timeline_add(at, 180, &a);
 
     return at;
 }
