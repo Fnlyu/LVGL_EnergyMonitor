@@ -43,7 +43,8 @@ lv_obj_t * top_status_bar_create(lv_obj_t * parent, const char * title_text, con
 
     if (!style_inited) {
         lv_style_init(&style_top_bar);
-        lv_style_set_bg_color(&style_top_bar, lv_color_hex(0x162033));
+        lv_style_set_bg_color(&style_top_bar, lv_color_hex(0x0b1118));
+        lv_style_set_border_color(&style_top_bar, lv_color_hex(0x172331));
         lv_style_set_border_width(&style_top_bar, 0);
         lv_style_set_radius(&style_top_bar, 0);
         lv_style_set_pad_all(&style_top_bar, 0);

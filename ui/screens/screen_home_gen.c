@@ -43,6 +43,7 @@ lv_obj_t * screen_home_create(void)
     static lv_style_t style_text_normal;
     static lv_style_t style_text_muted;
     static lv_style_t style_text_value;
+    static lv_style_t style_text_value_KW;
     static lv_style_t style_text_ok;
     static lv_style_t style_text_warn;
     static lv_style_t style_accent_cyan;
@@ -53,18 +54,18 @@ lv_obj_t * screen_home_create(void)
 
     if (!style_inited) {
         lv_style_init(&style_screen_bg);
-        lv_style_set_bg_color(&style_screen_bg, lv_color_hex(0x0b1220));
+        lv_style_set_bg_color(&style_screen_bg, lv_color_hex(0x05070a));
 
         lv_style_init(&style_card);
-        lv_style_set_bg_color(&style_card, lv_color_hex(0x111c2e));
-        lv_style_set_border_color(&style_card, lv_color_hex(0x26384f));
+        lv_style_set_bg_color(&style_card, lv_color_hex(0x101821));
+        lv_style_set_border_color(&style_card, lv_color_hex(0x1a2632));
         lv_style_set_border_width(&style_card, 1);
         lv_style_set_radius(&style_card, 8);
         lv_style_set_pad_all(&style_card, 6);
 
         lv_style_init(&style_card_main);
-        lv_style_set_bg_color(&style_card_main, lv_color_hex(0x10263c));
-        lv_style_set_border_color(&style_card_main, lv_color_hex(0x2e5a7a));
+        lv_style_set_bg_color(&style_card_main, lv_color_hex(0x0b1118));
+        lv_style_set_border_color(&style_card_main, lv_color_hex(0x172331));
         lv_style_set_border_width(&style_card_main, 1);
         lv_style_set_radius(&style_card_main, 10);
         lv_style_set_pad_all(&style_card_main, 8);
@@ -74,12 +75,16 @@ lv_obj_t * screen_home_create(void)
         lv_style_set_text_font(&style_text_normal, font_cn_12);
 
         lv_style_init(&style_text_muted);
-        lv_style_set_text_color(&style_text_muted, lv_color_hex(0x8fa3bf));
-        lv_style_set_text_font(&style_text_muted, font_cn_12);
+        lv_style_set_text_color(&style_text_muted, lv_color_hex(0x7a8a99));
+        lv_style_set_text_font(&style_text_muted, font_cn_14);
 
         lv_style_init(&style_text_value);
-        lv_style_set_text_color(&style_text_value, lv_color_hex(0x4dd4ff));
-        lv_style_set_text_font(&style_text_value, font_cn_30);
+        lv_style_set_text_color(&style_text_value, lv_color_hex(0x20e6d2));
+        lv_style_set_text_font(&style_text_value, font_cn_34);
+
+        lv_style_init(&style_text_value_KW);
+        lv_style_set_text_color(&style_text_value_KW, lv_color_hex(0xe6eef5));
+        lv_style_set_text_font(&style_text_value_KW, font_cn_34);
 
         lv_style_init(&style_text_ok);
         lv_style_set_text_color(&style_text_ok, lv_color_hex(0x61d394));
@@ -127,17 +132,35 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_height(main_card, 92);
     lv_obj_add_style(main_card, &style_card_main, 0);
     lv_obj_t * lv_label_0 = lv_label_create(main_card);
-    lv_obj_set_x(lv_label_0, 70);
-    lv_obj_set_y(lv_label_0, 0);
+    lv_obj_set_x(lv_label_0, 0);
+    lv_obj_set_y(lv_label_0, 5);
+    lv_obj_set_width(lv_label_0, 200);
     lv_label_set_text(lv_label_0, "当前总功率");
+    lv_obj_set_style_text_align(lv_label_0, LV_TEXT_ALIGN_CENTER, 0);
     lv_obj_add_style(lv_label_0, &style_text_muted, 0);
     
-    lv_obj_t * label_total_power = lv_label_create(main_card);
+    lv_obj_t * power_row = lv_obj_create(main_card);
+    lv_obj_set_name(power_row, "power_row");
+    lv_obj_set_x(power_row, 0);
+    lv_obj_set_y(power_row, 33);
+    lv_obj_set_width(power_row, 200);
+    lv_obj_set_height(power_row, 40);
+    lv_obj_set_flex_flow(power_row, LV_FLEX_FLOW_ROW);
+    lv_obj_set_style_flex_main_place(power_row, LV_FLEX_ALIGN_CENTER, 0);
+    lv_obj_set_style_flex_cross_place(power_row, LV_FLEX_ALIGN_CENTER, 0);
+    lv_obj_set_style_bg_opa(power_row, 0, 0);
+    lv_obj_set_style_border_width(power_row, 0, 0);
+    lv_obj_set_style_pad_all(power_row, 0, 0);
+    lv_obj_set_style_pad_column(power_row, 0, 0);
+    lv_obj_t * label_total_power = lv_label_create(power_row);
     lv_obj_set_name(label_total_power, "label_total_power");
-    lv_obj_set_x(label_total_power, 60);
-    lv_obj_set_y(label_total_power, 33);
-    lv_label_set_text(label_total_power, "--.-- kW");
+    lv_label_set_text(label_total_power, "12.34 ");
     lv_obj_add_style(label_total_power, &style_text_value, 0);
+    
+    lv_obj_t * label_total_power_unit = lv_label_create(power_row);
+    lv_obj_set_name(label_total_power_unit, "label_total_power_unit");
+    lv_label_set_text(label_total_power_unit, "KW");
+    lv_obj_add_style(label_total_power_unit, &style_text_value_KW, 0);
     
     lv_obj_t * today_card = lv_obj_create(lv_obj_0);
     lv_obj_set_name(today_card, "today_card");

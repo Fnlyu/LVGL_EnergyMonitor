@@ -42,7 +42,8 @@ lv_obj_t * bottom_key_bar_create(lv_obj_t * parent, const char * left_text, cons
 
     if (!style_inited) {
         lv_style_init(&style_bottom_bar);
-        lv_style_set_bg_color(&style_bottom_bar, lv_color_hex(0x111827));
+        lv_style_set_bg_color(&style_bottom_bar, lv_color_hex(0x101821));
+        lv_style_set_border_color(&style_bottom_bar, lv_color_hex(0x172331));
         lv_style_set_border_width(&style_bottom_bar, 0);
         lv_style_set_radius(&style_bottom_bar, 0);
         lv_style_set_pad_all(&style_bottom_bar, 0);

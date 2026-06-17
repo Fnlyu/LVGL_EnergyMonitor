@@ -63,12 +63,12 @@
 		/>
 		<bin
 			as_file="false"
-			name="font_cn_30"
+			name="font_cn_34"
 			src_path="fonts/LXGWWenKaiMono-Medium.ttf"
-			size="24"
+			size="34"
 			bpp="4"
 			range="0x20-0x7f"
-			symbols="1234567890"
+			symbols="1234567890KW"
 		/>
 	</fonts>
 </globals>
