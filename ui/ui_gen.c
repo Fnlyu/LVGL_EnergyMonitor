@@ -51,6 +51,8 @@ lv_font_t * font_cn_16;
 extern lv_font_t font_cn_16_data;
 lv_font_t * font_cn_18;
 extern lv_font_t font_cn_18_data;
+lv_font_t * font_cn_20;
+extern lv_font_t font_cn_20_data;
 lv_font_t * font_cn_24;
 extern lv_font_t font_cn_24_data;
 lv_font_t * font_cn_34;
@@ -93,6 +95,8 @@ void ui_init_gen(const char * asset_path)
     font_cn_16 = &font_cn_16_data;
     /* get font 'font_cn_18' from a C array */
     font_cn_18 = &font_cn_18_data;
+    /* get font 'font_cn_20' from a C array */
+    font_cn_20 = &font_cn_20_data;
     /* get font 'font_cn_24' from a C array */
     font_cn_24 = &font_cn_24_data;
     /* get font 'font_cn_34' from a C array */
@@ -121,6 +125,7 @@ void ui_init_gen(const char * asset_path)
     lv_xml_register_font(NULL, "font_cn_14", font_cn_14);
     lv_xml_register_font(NULL, "font_cn_16", font_cn_16);
     lv_xml_register_font(NULL, "font_cn_18", font_cn_18);
+    lv_xml_register_font(NULL, "font_cn_20", font_cn_20);
     lv_xml_register_font(NULL, "font_cn_24", font_cn_24);
     lv_xml_register_font(NULL, "font_cn_34", font_cn_34);
 

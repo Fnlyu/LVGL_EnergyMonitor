@@ -96,7 +96,7 @@ lv_obj_t * screen_home_create(void)
 
         lv_style_init(&style_text_value_xiao);
         lv_style_set_text_color(&style_text_value_xiao, lv_color_hex(0xe6eef5));
-        lv_style_set_text_font(&style_text_value_xiao, font_cn_16);
+        lv_style_set_text_font(&style_text_value_xiao, font_cn_20);
 
         lv_style_init(&style_text_value);
         lv_style_set_text_color(&style_text_value, lv_color_hex(0x20e6d2));
@@ -228,7 +228,7 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_style_pad_column(day_power_row, 0, 0);
     lv_obj_t * label_day_power = lv_label_create(day_power_row);
     lv_obj_set_name(label_day_power, "label_day_power");
-    lv_label_set_text(label_day_power, "6722.33");
+    lv_label_set_text(label_day_power, "672.33");
     lv_obj_add_style(label_day_power, &style_text_value_xiao, 0);
     
     lv_obj_t * label_day_power_unit = lv_label_create(day_power_row);
@@ -276,7 +276,7 @@ lv_obj_t * screen_home_create(void)
     lv_obj_set_style_pad_column(month_power_row, 0, 0);
     lv_obj_t * label_month_power = lv_label_create(month_power_row);
     lv_obj_set_name(label_month_power, "label_month_power");
-    lv_label_set_text(label_month_power, "6722.33");
+    lv_label_set_text(label_month_power, "6722.3");
     lv_obj_add_style(label_month_power, &style_text_value_xiao, 0);
     
     lv_obj_t * label_month_power_unit = lv_label_create(month_power_row);

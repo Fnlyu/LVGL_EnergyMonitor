@@ -63,6 +63,15 @@
 		/>
 		<bin
 			as_file="false"
+			name="font_cn_20"
+			src_path="fonts/LXGWWenKaiMono-Medium.ttf"
+			size="20"
+			bpp="4"
+			range="0x20-0x7f"
+			symbols="家庭能量监测当前总功率"
+		/>
+		<bin
+			as_file="false"
 			name="font_cn_24"
 			src_path="fonts/LXGWWenKaiMono-Medium.ttf"
 			size="24"

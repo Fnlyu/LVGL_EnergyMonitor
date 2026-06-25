@@ -108,7 +108,7 @@
 		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
 		<style name="style_text_muted" text_color="0xbfd6ec" text_font="font_cn_16" />
 		<style name="style_text_biaoti_da" text_color="0xbfd6ec" text_font="font_cn_18" />
-		<style name="style_text_value_xiao" text_color="0xe6eef5" text_font="font_cn_16" />
+		<style name="style_text_value_xiao" text_color="0xe6eef5" text_font="font_cn_20" />
 		<style name="style_text_value" text_color="0x20e6d2" text_font="font_cn_34" />
 		<style name="style_text_value_KW" text_color="0xe6eef5" text_font="font_cn_34" />
 		<style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
@@ -203,7 +203,7 @@
 				style_pad_all="0"
 				style_pad_column="0"
 			>
-				<lv_label name="label_day_power" text="6722.33">
+				<lv_label name="label_day_power" text="672.33">
 					<style name="style_text_value_xiao" />
 				</lv_label>
 
@@ -248,7 +248,7 @@
 				style_pad_all="0"
 				style_pad_column="0"
 			>
-				<lv_label name="label_month_power" text="6722.33">
+				<lv_label name="label_month_power" text="6722.3">
 					<style name="style_text_value_xiao" />
 				</lv_label>
 
