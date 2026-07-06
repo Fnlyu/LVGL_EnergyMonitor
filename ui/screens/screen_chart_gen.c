@@ -219,64 +219,8 @@ lv_obj_t * screen_chart_create(void)
     lv_chart_set_axis_min_value(chart_power, LV_CHART_AXIS_PRIMARY_Y, 0);
     lv_chart_set_axis_max_value(chart_power, LV_CHART_AXIS_PRIMARY_Y, 800);
     lv_chart_series_t * lv_chart_series_0 = lv_chart_add_series(chart_power, lv_color_hex(0x20e6d2), LV_CHART_AXIS_PRIMARY_Y);
-    static const int32_t chart_power_values_0[] = {100,100,100,260,260,260,220,220,220,580,580,580,710,710,500,500,500,500,780,780,780,780,672,672,672};
-    lv_chart_set_series_values(chart_power, lv_chart_series_0, chart_power_values_0, 1);
-    
-    lv_obj_t * lv_obj_1 = lv_obj_create(chart_card);
-    lv_obj_set_x(lv_obj_1, 37);
-    lv_obj_set_y(lv_obj_1, 94);
-    lv_obj_set_width(lv_obj_1, 6);
-    lv_obj_set_height(lv_obj_1, 6);
-    lv_obj_add_style(lv_obj_1, &style_curve_dot, 0);
-    
-    lv_obj_t * lv_obj_2 = lv_obj_create(chart_card);
-    lv_obj_set_x(lv_obj_2, 59);
-    lv_obj_set_y(lv_obj_2, 79);
-    lv_obj_set_width(lv_obj_2, 6);
-    lv_obj_set_height(lv_obj_2, 6);
-    lv_obj_add_style(lv_obj_2, &style_curve_dot, 0);
-    
-    lv_obj_t * lv_obj_3 = lv_obj_create(chart_card);
-    lv_obj_set_x(lv_obj_3, 82);
-    lv_obj_set_y(lv_obj_3, 83);
-    lv_obj_set_width(lv_obj_3, 6);
-    lv_obj_set_height(lv_obj_3, 6);
-    lv_obj_add_style(lv_obj_3, &style_curve_dot, 0);
-    
-    lv_obj_t * lv_obj_4 = lv_obj_create(chart_card);
-    lv_obj_set_x(lv_obj_4, 103);
-    lv_obj_set_y(lv_obj_4, 54);
-    lv_obj_set_width(lv_obj_4, 6);
-    lv_obj_set_height(lv_obj_4, 6);
-    lv_obj_add_style(lv_obj_4, &style_curve_dot, 0);
-    
-    lv_obj_t * lv_obj_5 = lv_obj_create(chart_card);
-    lv_obj_set_x(lv_obj_5, 126);
-    lv_obj_set_y(lv_obj_5, 41);
-    lv_obj_set_width(lv_obj_5, 6);
-    lv_obj_set_height(lv_obj_5, 6);
-    lv_obj_add_style(lv_obj_5, &style_curve_dot, 0);
-    
-    lv_obj_t * lv_obj_6 = lv_obj_create(chart_card);
-    lv_obj_set_x(lv_obj_6, 150);
-    lv_obj_set_y(lv_obj_6, 61);
-    lv_obj_set_width(lv_obj_6, 6);
-    lv_obj_set_height(lv_obj_6, 6);
-    lv_obj_add_style(lv_obj_6, &style_curve_dot, 0);
-    
-    lv_obj_t * lv_obj_7 = lv_obj_create(chart_card);
-    lv_obj_set_x(lv_obj_7, 178);
-    lv_obj_set_y(lv_obj_7, 31);
-    lv_obj_set_width(lv_obj_7, 8);
-    lv_obj_set_height(lv_obj_7, 8);
-    lv_obj_add_style(lv_obj_7, &style_peak_dot, 0);
-    
-    lv_obj_t * lv_obj_8 = lv_obj_create(chart_card);
-    lv_obj_set_x(lv_obj_8, 202);
-    lv_obj_set_y(lv_obj_8, 49);
-    lv_obj_set_width(lv_obj_8, 6);
-    lv_obj_set_height(lv_obj_8, 6);
-    lv_obj_add_style(lv_obj_8, &style_curve_dot, 0);
+    static const int32_t chart_power_values_0[] = {100, 100, 100, 260, 260, 260, 220, 220, 220, 580, 580, 580, 710, 710, 500, 500, 500, 500, 780, 780, 780, 780, 672, 672, 672};
+    lv_chart_set_series_values(chart_power, lv_chart_series_0, chart_power_values_0, 25);
     
     lv_obj_t * lv_label_5 = lv_label_create(chart_card);
     lv_obj_set_x(lv_label_5, 34);
@@ -312,12 +256,12 @@ lv_obj_t * screen_chart_create(void)
     lv_obj_set_style_opa(now_card, 0, 0);
     lv_obj_set_style_translate_y(now_card, 24, 0);
     lv_obj_add_style(now_card, &style_card, 0);
-    lv_obj_t * lv_obj_9 = lv_obj_create(now_card);
-    lv_obj_set_x(lv_obj_9, 0);
-    lv_obj_set_y(lv_obj_9, 7);
-    lv_obj_set_width(lv_obj_9, 3);
-    lv_obj_set_height(lv_obj_9, 26);
-    lv_obj_add_style(lv_obj_9, &style_accent_cyan, 0);
+    lv_obj_t * lv_obj_1 = lv_obj_create(now_card);
+    lv_obj_set_x(lv_obj_1, 0);
+    lv_obj_set_y(lv_obj_1, 7);
+    lv_obj_set_width(lv_obj_1, 3);
+    lv_obj_set_height(lv_obj_1, 26);
+    lv_obj_add_style(lv_obj_1, &style_accent_cyan, 0);
     
     lv_obj_t * lv_label_9 = lv_label_create(now_card);
     lv_obj_set_x(lv_label_9, 8);
@@ -342,12 +286,12 @@ lv_obj_t * screen_chart_create(void)
     lv_obj_set_style_opa(peak_card, 0, 0);
     lv_obj_set_style_translate_y(peak_card, 24, 0);
     lv_obj_add_style(peak_card, &style_card, 0);
-    lv_obj_t * lv_obj_10 = lv_obj_create(peak_card);
-    lv_obj_set_x(lv_obj_10, 0);
-    lv_obj_set_y(lv_obj_10, 7);
-    lv_obj_set_width(lv_obj_10, 3);
-    lv_obj_set_height(lv_obj_10, 26);
-    lv_obj_add_style(lv_obj_10, &style_accent_yellow, 0);
+    lv_obj_t * lv_obj_2 = lv_obj_create(peak_card);
+    lv_obj_set_x(lv_obj_2, 0);
+    lv_obj_set_y(lv_obj_2, 7);
+    lv_obj_set_width(lv_obj_2, 3);
+    lv_obj_set_height(lv_obj_2, 26);
+    lv_obj_add_style(lv_obj_2, &style_accent_yellow, 0);
     
     lv_obj_t * lv_label_10 = lv_label_create(peak_card);
     lv_obj_set_x(lv_label_10, 8);
@@ -372,12 +316,12 @@ lv_obj_t * screen_chart_create(void)
     lv_obj_set_style_opa(avg_card, 0, 0);
     lv_obj_set_style_translate_y(avg_card, 24, 0);
     lv_obj_add_style(avg_card, &style_card, 0);
-    lv_obj_t * lv_obj_11 = lv_obj_create(avg_card);
-    lv_obj_set_x(lv_obj_11, 0);
-    lv_obj_set_y(lv_obj_11, 7);
-    lv_obj_set_width(lv_obj_11, 3);
-    lv_obj_set_height(lv_obj_11, 26);
-    lv_obj_add_style(lv_obj_11, &style_accent_green, 0);
+    lv_obj_t * lv_obj_3 = lv_obj_create(avg_card);
+    lv_obj_set_x(lv_obj_3, 0);
+    lv_obj_set_y(lv_obj_3, 7);
+    lv_obj_set_width(lv_obj_3, 3);
+    lv_obj_set_height(lv_obj_3, 26);
+    lv_obj_add_style(lv_obj_3, &style_accent_green, 0);
     
     lv_obj_t * lv_label_11 = lv_label_create(avg_card);
     lv_obj_set_x(lv_label_11, 8);

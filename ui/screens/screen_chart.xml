@@ -189,41 +189,9 @@
 				<lv_chart-series
 					color="0x20e6d2"
 					axis="primary_y"
-					values="100,100,100,260,260,260,220,220,220,580,580,580,710,710,500,500,500,500,780,780,780,780,672,672,672"
+					values="100 100 100 260 260 260 220 220 220 580 580 580 710 710 500 500 500 500 780 780 780 780 672 672 672"
 				/>
 			</lv_chart>
-
-			<lv_obj x="37" y="94" width="6" height="6">
-				<style name="style_curve_dot" />
-			</lv_obj>
-
-			<lv_obj x="59" y="79" width="6" height="6">
-				<style name="style_curve_dot" />
-			</lv_obj>
-
-			<lv_obj x="82" y="83" width="6" height="6">
-				<style name="style_curve_dot" />
-			</lv_obj>
-
-			<lv_obj x="103" y="54" width="6" height="6">
-				<style name="style_curve_dot" />
-			</lv_obj>
-
-			<lv_obj x="126" y="41" width="6" height="6">
-				<style name="style_curve_dot" />
-			</lv_obj>
-
-			<lv_obj x="150" y="61" width="6" height="6">
-				<style name="style_curve_dot" />
-			</lv_obj>
-
-			<lv_obj x="178" y="31" width="8" height="8">
-				<style name="style_peak_dot" />
-			</lv_obj>
-
-			<lv_obj x="202" y="49" width="6" height="6">
-				<style name="style_curve_dot" />
-			</lv_obj>
 
 			<lv_label x="34" y="110" text="00">
 				<style name="style_text_muted" />
