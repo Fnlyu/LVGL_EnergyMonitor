@@ -1,0 +1,331 @@
+<screen>
+	<animations>
+		<timeline name="screen_open">
+			<animation prop="opa" target="top_bar" start="0" end="255" duration="180" delay="0" early_apply="true" />
+			<animation
+				prop="translate_y"
+				target="top_bar"
+				start="-20"
+				end="0"
+				duration="180"
+				delay="0"
+				early_apply="true"
+			/>
+
+			<animation
+				prop="opa"
+				target="chart_card"
+				start="0"
+				end="255"
+				duration="220"
+				delay="80"
+				early_apply="true"
+			/>
+			<animation
+				prop="translate_x"
+				target="chart_card"
+				start="-40"
+				end="0"
+				duration="220"
+				delay="80"
+				early_apply="true"
+			/>
+
+			<animation prop="opa" target="now_card" start="0" end="255" duration="220" delay="180" early_apply="true" />
+			<animation prop="translate_y" target="now_card" start="24" end="0" duration="220" delay="180" />
+
+			<animation
+				prop="opa"
+				target="peak_card"
+				start="0"
+				end="255"
+				duration="220"
+				delay="240"
+				early_apply="true"
+			/>
+			<animation prop="translate_y" target="peak_card" start="24" end="0" duration="220" delay="240" />
+
+			<animation prop="opa" target="avg_card" start="0" end="255" duration="220" delay="300" early_apply="true" />
+			<animation prop="translate_y" target="avg_card" start="24" end="0" duration="220" delay="300" />
+
+			<animation
+				prop="opa"
+				target="bottom_bar"
+				start="0"
+				end="255"
+				duration="180"
+				delay="380"
+				early_apply="true"
+			/>
+			<animation prop="translate_y" target="bottom_bar" start="20" end="0" duration="180" delay="380" />
+		</timeline>
+	</animations>
+
+	<styles>
+		<style name="style_screen_bg" bg_color="0x05070a" />
+
+		<style name="style_card" bg_color="0x101821" border_color="0x1a2632" border_width="1" radius="8" pad_all="0" />
+
+		<style
+			name="style_card_main"
+			bg_color="0x0b1118"
+			border_color="0x172331"
+			border_width="1"
+			radius="10"
+			pad_all="0"
+		/>
+
+		<style
+			name="style_card_focused"
+			border_width="2"
+			border_color="0x35cfff"
+			border_opa="255"
+			shadow_width="8"
+			shadow_color="0x35cfff"
+			shadow_opa="90"
+			radius="14"
+		/>
+
+		<style name="style_text_muted" text_color="0xbfd6ec" text_font="font_cn_12" />
+
+		<style name="style_text_title" text_color="0xbfd6ec" text_font="font_cn_18" />
+
+		<style name="style_text_value" text_color="0x20e6d2" text_font="font_cn_18" />
+
+		<style
+			name="style_chart_main"
+			bg_opa="0"
+			border_width="0"
+			radius="0"
+			pad_all="0"
+			line_color="0x1a2632"
+			line_width="1"
+			line_opa="255"
+		/>
+
+		<style name="style_chart_items" line_color="0x20e6d2" line_width="2" line_opa="255" />
+
+		<style name="style_chart_indicator_hidden" width="0" height="0" bg_opa="0" border_width="0" />
+
+		<style name="style_curve_dot" bg_color="0x20e6d2" bg_opa="255" border_width="0" radius="3" pad_all="0" />
+
+		<style name="style_peak_dot" bg_color="0xffb020" bg_opa="255" border_width="0" radius="4" pad_all="0" />
+
+		<style name="style_accent_cyan" bg_color="0x20e6d2" border_width="0" radius="3" pad_all="0" />
+
+		<style name="style_accent_green" bg_color="0x32f27a" border_width="0" radius="3" pad_all="0" />
+
+		<style name="style_accent_yellow" bg_color="0xffb020" border_width="0" radius="3" pad_all="0" />
+	</styles>
+
+	<view>
+		<play_timeline_event target="self" timeline="screen_open" trigger="screen_load_start" />
+
+		<style name="style_screen_bg" />
+
+		<top_status_bar
+			name="top_bar"
+			x="0"
+			y="0"
+			title_text="功率曲线"
+			time_text="12:30"
+			comm_text="WiFi"
+			style_opa="0"
+			style_translate_y="-20"
+		/>
+
+		<lv_obj
+			name="chart_card"
+			x="10"
+			y="36"
+			width="220"
+			height="128"
+			scrollable="false"
+			style_opa="0"
+			style_translate_x="-40"
+		>
+			<style name="style_card_main" />
+			<style name="style_card_focused" selector="focused" />
+
+			<lv_label x="8" y="3" text="今日功率曲线">
+				<style name="style_text_title" />
+			</lv_label>
+
+			<lv_label x="166" y="8" text="24h / KW">
+				<style name="style_text_muted" />
+			</lv_label>
+
+			<lv_label x="0" y="29" text="8KW">
+				<style name="style_text_muted" />
+			</lv_label>
+
+			<lv_label x="0" y="67" text="4KW">
+				<style name="style_text_muted" />
+			</lv_label>
+
+			<lv_label x="0" y="101" text="0KW">
+				<style name="style_text_muted" />
+			</lv_label>
+
+			<lv_chart
+				name="chart_power"
+				x="34"
+				y="31"
+				width="174"
+				height="76"
+				type="line"
+				point_count="25"
+				update_mode="shift"
+				hor_div_line_count="3"
+				ver_div_line_count="4"
+				scrollable="false"
+			>
+				<style name="style_chart_main" selector="main" />
+				<style name="style_chart_items" selector="items" />
+				<style name="style_chart_indicator_hidden" selector="indicator" />
+
+				<lv_chart-axis axis="primary_y" min_value="0" max_value="800" />
+
+				<lv_chart-series
+					color="0x20e6d2"
+					axis="primary_y"
+					values="100,100,100,260,260,260,220,220,220,580,580,580,710,710,500,500,500,500,780,780,780,780,672,672,672"
+				/>
+			</lv_chart>
+
+			<lv_obj x="37" y="94" width="6" height="6">
+				<style name="style_curve_dot" />
+			</lv_obj>
+
+			<lv_obj x="59" y="79" width="6" height="6">
+				<style name="style_curve_dot" />
+			</lv_obj>
+
+			<lv_obj x="82" y="83" width="6" height="6">
+				<style name="style_curve_dot" />
+			</lv_obj>
+
+			<lv_obj x="103" y="54" width="6" height="6">
+				<style name="style_curve_dot" />
+			</lv_obj>
+
+			<lv_obj x="126" y="41" width="6" height="6">
+				<style name="style_curve_dot" />
+			</lv_obj>
+
+			<lv_obj x="150" y="61" width="6" height="6">
+				<style name="style_curve_dot" />
+			</lv_obj>
+
+			<lv_obj x="178" y="31" width="8" height="8">
+				<style name="style_peak_dot" />
+			</lv_obj>
+
+			<lv_obj x="202" y="49" width="6" height="6">
+				<style name="style_curve_dot" />
+			</lv_obj>
+
+			<lv_label x="34" y="110" text="00">
+				<style name="style_text_muted" />
+			</lv_label>
+
+			<lv_label x="94" y="110" text="08">
+				<style name="style_text_muted" />
+			</lv_label>
+
+			<lv_label x="155" y="110" text="16">
+				<style name="style_text_muted" />
+			</lv_label>
+
+			<lv_label x="194" y="110" text="24">
+				<style name="style_text_muted" />
+			</lv_label>
+		</lv_obj>
+
+		<lv_obj
+			name="now_card"
+			x="8"
+			y="171"
+			width="72"
+			height="40"
+			scrollable="false"
+			style_opa="0"
+			style_translate_y="24"
+		>
+			<style name="style_card" />
+
+			<lv_obj x="0" y="7" width="3" height="26">
+				<style name="style_accent_cyan" />
+			</lv_obj>
+
+			<lv_label x="8" y="3" text="当前">
+				<style name="style_text_muted" />
+			</lv_label>
+
+			<lv_label name="label_power_now" x="8" y="20" text="6.72KW">
+				<style name="style_text_value" />
+			</lv_label>
+		</lv_obj>
+
+		<lv_obj
+			name="peak_card"
+			x="84"
+			y="171"
+			width="72"
+			height="40"
+			scrollable="false"
+			style_opa="0"
+			style_translate_y="24"
+		>
+			<style name="style_card" />
+
+			<lv_obj x="0" y="7" width="3" height="26">
+				<style name="style_accent_yellow" />
+			</lv_obj>
+
+			<lv_label x="8" y="3" text="峰值">
+				<style name="style_text_muted" />
+			</lv_label>
+
+			<lv_label name="label_power_peak" x="8" y="20" text="7.80KW">
+				<style name="style_text_value" />
+			</lv_label>
+		</lv_obj>
+
+		<lv_obj
+			name="avg_card"
+			x="160"
+			y="171"
+			width="72"
+			height="40"
+			scrollable="false"
+			style_opa="0"
+			style_translate_y="24"
+		>
+			<style name="style_card" />
+
+			<lv_obj x="0" y="7" width="3" height="26">
+				<style name="style_accent_green" />
+			</lv_obj>
+
+			<lv_label x="8" y="3" text="平均">
+				<style name="style_text_muted" />
+			</lv_label>
+
+			<lv_label name="label_power_avg" x="8" y="20" text="4.92KW">
+				<style name="style_text_value" />
+			</lv_label>
+		</lv_obj>
+
+		<bottom_key_bar
+			name="bottom_bar"
+			x="0"
+			y="216"
+			left_text="上/下 切页"
+			center_text="确认 详情"
+			right_text="2/8"
+			style_opa="0"
+			style_translate_y="20"
+		/>
+	</view>
+</screen>

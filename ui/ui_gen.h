@@ -102,9 +102,9 @@ void ui_init_gen(const char * asset_path);
 /*Include all the widgets, components and screens of this library*/
 #include "components/bottom_key_bar/bottom_key_bar_gen.h"
 #include "components/top_status_bar/top_status_bar_gen.h"
+#include "screens/screen_chart_gen.h"
 #include "screens/screen_home_gen.h"
 #include "screens/screen_voltage_gen.h"
-#include "screens/screen_wt3213_gen.h"
 
 #ifdef __cplusplus
 } /*extern "C"*/
