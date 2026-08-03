@@ -1,0 +1,230 @@
+<screen>
+	<animations>
+		<timeline name="screen_open">
+			<animation prop="opa" target="top_bar" start="0" end="255" duration="180" delay="0" early_apply="true" />
+			<animation
+				prop="translate_y"
+				target="top_bar"
+				start="-20"
+				end="0"
+				duration="180"
+				delay="0"
+				early_apply="true"
+			/>
+			<animation
+				prop="opa"
+				target="list_container"
+				start="0"
+				end="255"
+				duration="220"
+				delay="80"
+				early_apply="true"
+			/>
+			<animation
+				prop="translate_x"
+				target="list_container"
+				start="-35"
+				end="0"
+				duration="220"
+				delay="80"
+				early_apply="true"
+			/>
+			<animation
+				prop="opa"
+				target="bottom_bar"
+				start="0"
+				end="255"
+				duration="180"
+				delay="380"
+				early_apply="true"
+			/>
+			<animation
+				prop="translate_y"
+				target="bottom_bar"
+				start="20"
+				end="0"
+				duration="180"
+				delay="380"
+				early_apply="true"
+			/>
+		</timeline>
+	</animations>
+	<styles>
+		<style name="style_screen_bg" bg_color="0x05070a" />
+		<style name="style_card" bg_color="0x101821" border_color="0x1a2632" border_width="1" radius="6" pad_all="0" />
+		<style
+			name="style_card_focused"
+			border_width="2"
+			border_color="0x35cfff"
+			border_opa="255"
+			shadow_width="6"
+			shadow_color="0x35cfff"
+			shadow_opa="80"
+			radius="10"
+		/>
+		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
+		<style name="style_text_muted" text_color="0x8fa3bf" text_font="font_cn_12" />
+		<style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_12" />
+		<!--  状态颜色  -->
+		<style name="style_status_critical" text_color="0xff4757" text_font="font_cn_12" />
+		<!--  红：未恢复/严重  -->
+		<style name="style_status_warning" text_color="0xffd166" text_font="font_cn_12" />
+		<!--  黄：警告  -->
+		<style name="style_status_ok" text_color="0x61d394" text_font="font_cn_12" />
+		<!--  绿：已恢复  -->
+		<!--  告警类型标签颜色（小色块）  -->
+		<style name="style_tag_overvoltage" bg_color="0xff4757" radius="3" pad_all="2" />
+		<style name="style_tag_undervoltage" bg_color="0xffa502" radius="3" pad_all="2" />
+		<style name="style_tag_overcurrent" bg_color="0xff6348" radius="3" pad_all="2" />
+		<style name="style_tag_short" bg_color="0xee5a24" radius="3" pad_all="2" />
+	</styles>
+	<view>
+		<play_timeline_event target="self" timeline="screen_open" trigger="screen_load_start" />
+		<style name="style_screen_bg" />
+		<!--  顶部状态栏  -->
+		<top_status_bar
+			name="top_bar"
+			x="0"
+			y="0"
+			title_text="告警日志"
+			time_text="12:30"
+			comm_text="WiFi"
+			style_opa="0"
+			style_translate_y="-20"
+		/>
+		<!--  列表容器（可滚动）  -->
+		<lv_obj
+			name="list_container"
+			x="10"
+			y="38"
+			width="220"
+			height="172"
+			scrollable="true"
+			style_opa="0"
+			style_translate_x="-35"
+			style_bg_opa="0"
+			style_border_width="0"
+			style_pad_all="0"
+			style_pad_row="3"
+		>
+			<!--  ====== 告警条目 1（最新，未恢复） ======  -->
+			<lv_obj name="alarm_1" x="0" y="0" width="220" height="40" scrollable="false">
+				<style name="style_card" />
+				<style name="style_card_focused" selector="focused" />
+				<!--  左侧色条（表示严重等级）  -->
+				<lv_obj
+					x="0"
+					y="0"
+					width="4"
+					height="40"
+					style_bg_color="0xff4757"
+					style_border_width="0"
+					style_radius="0"
+				/>
+				<!--  第一行：类型 + 时间  -->
+				<lv_label x="8" y="1" text="过压">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label x="140" y="1" text="14:32:05">
+					<style name="style_text_muted" />
+				</lv_label>
+				<!--  第二行：持续时长 + 状态  -->
+				<lv_label x="8" y="18" text="持续 3min 12s">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label x="140" y="18" text="● 未恢复">
+					<style name="style_status_critical" />
+				</lv_label>
+			</lv_obj>
+			<!--  ====== 告警条目 2（已恢复） ======  -->
+			<lv_obj name="alarm_2" x="0" y="43" width="220" height="40" scrollable="false">
+				<style name="style_card" />
+				<style name="style_card_focused" selector="focused" />
+				<lv_obj
+					x="0"
+					y="0"
+					width="4"
+					height="40"
+					style_bg_color="0xffd166"
+					style_border_width="0"
+					style_radius="0"
+				/>
+				<lv_label x="8" y="1" text="欠压">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label x="140" y="1" text="12:18:22">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="8" y="18" text="持续 0min 45s">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label x="140" y="18" text="● 已恢复">
+					<style name="style_status_ok" />
+				</lv_label>
+			</lv_obj>
+			<!--  ====== 告警条目 3（过流） ======  -->
+			<lv_obj name="alarm_3" x="0" y="86" width="220" height="40" scrollable="false">
+				<style name="style_card" />
+				<style name="style_card_focused" selector="focused" />
+				<lv_obj
+					x="0"
+					y="0"
+					width="4"
+					height="40"
+					style_bg_color="0xff6348"
+					style_border_width="0"
+					style_radius="0"
+				/>
+				<lv_label x="8" y="1" text="过流">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label x="140" y="1" text="11:02:10">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="8" y="18" text="持续 5min 0s">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label x="140" y="18" text="● 已恢复">
+					<style name="style_status_ok" />
+				</lv_label>
+			</lv_obj>
+			<!--  ====== 告警条目 4（短路，已恢复） ======  -->
+			<lv_obj name="alarm_4" x="0" y="129" width="220" height="40" scrollable="false">
+				<style name="style_card" />
+				<style name="style_card_focused" selector="focused" />
+				<lv_obj
+					x="0"
+					y="0"
+					width="4"
+					height="40"
+					style_bg_color="0xee5a24"
+					style_border_width="0"
+					style_radius="0"
+				/>
+				<lv_label x="8" y="1" text="短路">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label x="140" y="1" text="09:45:03">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="8" y="18" text="持续 0min 12s">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label x="140" y="18" text="● 已恢复">
+					<style name="style_status_ok" />
+				</lv_label>
+			</lv_obj>
+		</lv_obj>
+		<!--  底部三按键栏  -->
+		<bottom_key_bar
+			name="bottom_bar"
+			x="0"
+			y="218"
+			left_text="上/下 切页"
+			center_text="确认 详情"
+			right_text="7/8"
+			style_opa="0"
+			style_translate_y="20"
+		/>
+	</view>
+</screen>
