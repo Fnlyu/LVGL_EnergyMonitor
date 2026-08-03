@@ -249,9 +249,10 @@ lv_obj_t * screen_chart_create(void)
         lv_obj_set_style_opa(now_card, 0, 0);
         lv_obj_set_style_translate_y(now_card, 24, 0);
         lv_obj_add_style(now_card, &style_card, 0);
+        lv_obj_add_style(now_card, &style_card_focused, LV_STATE_FOCUSED);
         lv_obj_t * lv_obj_1 = lv_obj_create(now_card);
-        lv_obj_set_x(lv_obj_1, 0);
-        lv_obj_set_y(lv_obj_1, 7);
+        lv_obj_set_x(lv_obj_1, 2);
+        lv_obj_set_y(lv_obj_1, 6);
         lv_obj_set_width(lv_obj_1, 3);
         lv_obj_set_height(lv_obj_1, 26);
         lv_obj_add_style(lv_obj_1, &style_accent_cyan, 0);
@@ -265,7 +266,7 @@ lv_obj_t * screen_chart_create(void)
         lv_obj_t * label_power_now = lv_label_create(now_card);
         lv_obj_set_name(label_power_now, "label_power_now");
         lv_obj_set_x(label_power_now, 8);
-        lv_obj_set_y(label_power_now, 20);
+        lv_obj_set_y(label_power_now, 18);
         lv_label_set_text(label_power_now, "6.72KW");
         lv_obj_add_style(label_power_now, &style_text_value, 0);
 
@@ -279,9 +280,10 @@ lv_obj_t * screen_chart_create(void)
         lv_obj_set_style_opa(peak_card, 0, 0);
         lv_obj_set_style_translate_y(peak_card, 24, 0);
         lv_obj_add_style(peak_card, &style_card, 0);
+        lv_obj_add_style(peak_card, &style_card_focused, LV_STATE_FOCUSED);
         lv_obj_t * lv_obj_2 = lv_obj_create(peak_card);
-        lv_obj_set_x(lv_obj_2, 0);
-        lv_obj_set_y(lv_obj_2, 7);
+        lv_obj_set_x(lv_obj_2, 2);
+        lv_obj_set_y(lv_obj_2, 6);
         lv_obj_set_width(lv_obj_2, 3);
         lv_obj_set_height(lv_obj_2, 26);
         lv_obj_add_style(lv_obj_2, &style_accent_yellow, 0);
@@ -295,7 +297,7 @@ lv_obj_t * screen_chart_create(void)
         lv_obj_t * label_power_peak = lv_label_create(peak_card);
         lv_obj_set_name(label_power_peak, "label_power_peak");
         lv_obj_set_x(label_power_peak, 8);
-        lv_obj_set_y(label_power_peak, 20);
+        lv_obj_set_y(label_power_peak, 18);
         lv_label_set_text(label_power_peak, "7.80KW");
         lv_obj_add_style(label_power_peak, &style_text_value, 0);
 
@@ -309,9 +311,10 @@ lv_obj_t * screen_chart_create(void)
         lv_obj_set_style_opa(avg_card, 0, 0);
         lv_obj_set_style_translate_y(avg_card, 24, 0);
         lv_obj_add_style(avg_card, &style_card, 0);
+        lv_obj_add_style(avg_card, &style_card_focused, LV_STATE_FOCUSED);
         lv_obj_t * lv_obj_3 = lv_obj_create(avg_card);
-        lv_obj_set_x(lv_obj_3, 0);
-        lv_obj_set_y(lv_obj_3, 7);
+        lv_obj_set_x(lv_obj_3, 2);
+        lv_obj_set_y(lv_obj_3, 6);
         lv_obj_set_width(lv_obj_3, 3);
         lv_obj_set_height(lv_obj_3, 26);
         lv_obj_add_style(lv_obj_3, &style_accent_green, 0);
@@ -325,7 +328,7 @@ lv_obj_t * screen_chart_create(void)
         lv_obj_t * label_power_avg = lv_label_create(avg_card);
         lv_obj_set_name(label_power_avg, "label_power_avg");
         lv_obj_set_x(label_power_avg, 8);
-        lv_obj_set_y(label_power_avg, 20);
+        lv_obj_set_y(label_power_avg, 18);
         lv_label_set_text(label_power_avg, "4.92KW");
         lv_obj_add_style(label_power_avg, &style_text_value, 0);
 

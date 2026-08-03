@@ -39,6 +39,7 @@ lv_obj_t * screen_wifi_create(void)
 
     static lv_style_t style_screen_bg;
     static lv_style_t style_card_main;
+    static lv_style_t style_card_focused;
     static lv_style_t style_text_normal;
     static lv_style_t style_text_muted;
     static lv_style_t style_text_title;
@@ -54,6 +55,7 @@ lv_obj_t * screen_wifi_create(void)
         /*Init all styles*/
         lv_style_init(&style_screen_bg);
         lv_style_init(&style_card_main);
+        lv_style_init(&style_card_focused);
         lv_style_init(&style_text_normal);
         lv_style_init(&style_text_muted);
         lv_style_init(&style_text_title);
@@ -69,6 +71,13 @@ lv_obj_t * screen_wifi_create(void)
         lv_style_set_border_width(&style_card_main, 1);
         lv_style_set_radius(&style_card_main, 10);
         lv_style_set_pad_all(&style_card_main, 8);
+        lv_style_set_border_width(&style_card_focused, 2);
+        lv_style_set_border_color(&style_card_focused, lv_color_hex(0x35cfff));
+        lv_style_set_border_opa(&style_card_focused, 255);
+        lv_style_set_shadow_width(&style_card_focused, 8);
+        lv_style_set_shadow_color(&style_card_focused, lv_color_hex(0x35cfff));
+        lv_style_set_shadow_opa(&style_card_focused, 90);
+        lv_style_set_radius(&style_card_focused, 14);
         lv_style_set_text_color(&style_text_normal, lv_color_hex(0xd8e2f0));
         lv_style_set_text_font(&style_text_normal, font_cn_12);
         lv_style_set_text_color(&style_text_muted, lv_color_hex(0xbfd6ec));
@@ -115,6 +124,7 @@ lv_obj_t * screen_wifi_create(void)
         lv_obj_set_style_opa(main_card, 0, 0);
         lv_obj_set_style_translate_x(main_card, -40, 0);
         lv_obj_add_style(main_card, &style_card_main, 0);
+        lv_obj_add_style(main_card, &style_card_focused, LV_STATE_FOCUSED);
         lv_obj_t * lv_label_0 = lv_label_create(main_card);
         lv_obj_set_x(lv_label_0, 0);
         lv_obj_set_y(lv_label_0, 2);

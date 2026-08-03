@@ -112,6 +112,17 @@
 			radius="10"
 			pad_all="8"
 		/>
+		<style
+			name="style_card_focused"
+			border_width="2"
+			border_color="0x35cfff"
+			border_opa="255"
+			shadow_width="8"
+			shadow_color="0x35cfff"
+			shadow_opa="90"
+			radius="14"
+		/>
+
 		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
 		<style name="style_text_muted" text_color="0x8fa3bf" text_font="font_cn_12" />
 		<style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_18" />
@@ -126,8 +137,9 @@
 
 		<top_status_bar name="top_bar" x="0" y="0" title_text="电压/频率" time_text="12:30" comm_text="WiFi" />
 
-		<lv_obj name="main_card" x="10" y="38" width="220" height="62">
+		<lv_obj name="main_card" x="10" y="38" width="220" height="62" scrollbar_mode="off">
 			<style name="style_card_main" />
+			<style name="style_card_focused" selector="focused" />
 			<lv_label x="0" y="0" text="当前电压">
 				<style name="style_text_muted" />
 			</lv_label>
@@ -139,8 +151,9 @@
 			</lv_label>
 		</lv_obj>
 
-		<lv_obj name="phase_card" x="10" y="108" width="105" height="72">
+		<lv_obj name="phase_card" x="10" y="108" width="105" height="72" scrollbar_mode="off">
 			<style name="style_card" />
+			<style name="style_card_focused" selector="focused" />
 			<lv_label x="0" y="0" text="Ua">
 				<style name="style_text_muted" />
 			</lv_label>
@@ -161,8 +174,9 @@
 			</lv_label>
 		</lv_obj>
 
-		<lv_obj name="freq_card" x="125" y="108" width="105" height="72">
+		<lv_obj name="freq_card" x="125" y="108" width="105" height="72" scrollbar_mode="off">
 			<style name="style_card" />
+			<style name="style_card_focused" selector="focused" />
 			<lv_label x="0" y="0" text="频率">
 				<style name="style_text_muted" />
 			</lv_label>
@@ -177,7 +191,7 @@
 			</lv_label>
 		</lv_obj>
 
-		<lv_obj name="hint_card" x="10" y="188" width="220" height="22">
+		<lv_obj name="hint_card" x="10" y="188" width="220" height="22" scrollbar_mode="off">
 			<style name="style_card" />
 			<lv_label name="label_voltage_hint" x="0" y="0" text="异常提示：无过压/欠压/断相">
 				<style name="style_text_ok" />

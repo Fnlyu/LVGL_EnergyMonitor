@@ -53,6 +53,17 @@
 			radius="10"
 			pad_all="8"
 		/>
+		<style
+			name="style_card_focused"
+			border_width="2"
+			border_color="0x35cfff"
+			border_opa="255"
+			shadow_width="8"
+			shadow_color="0x35cfff"
+			shadow_opa="90"
+			radius="14"
+		/>
+
 		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
 		<style name="style_text_muted" text_color="0xbfd6ec" text_font="font_cn_12" />
 		<style name="style_text_title" text_color="0xbfd6ec" text_font="font_cn_16" />
@@ -87,6 +98,7 @@
 			style_translate_x="-40"
 		>
 			<style name="style_card_main" />
+			<style name="style_card_focused" selector="focused" />
 			<!--  标题  -->
 			<lv_label x="0" y="2" width="100%" text="AP 热点配网" style_text_align="center">
 				<style name="style_text_title" />

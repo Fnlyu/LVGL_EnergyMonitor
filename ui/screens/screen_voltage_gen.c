@@ -40,6 +40,7 @@ lv_obj_t * screen_voltage_create(void)
     static lv_style_t style_screen_bg;
     static lv_style_t style_card;
     static lv_style_t style_card_main;
+    static lv_style_t style_card_focused;
     static lv_style_t style_text_normal;
     static lv_style_t style_text_muted;
     static lv_style_t style_text_value;
@@ -54,6 +55,7 @@ lv_obj_t * screen_voltage_create(void)
         lv_style_init(&style_screen_bg);
         lv_style_init(&style_card);
         lv_style_init(&style_card_main);
+        lv_style_init(&style_card_focused);
         lv_style_init(&style_text_normal);
         lv_style_init(&style_text_muted);
         lv_style_init(&style_text_value);
@@ -72,6 +74,13 @@ lv_obj_t * screen_voltage_create(void)
         lv_style_set_border_width(&style_card_main, 1);
         lv_style_set_radius(&style_card_main, 10);
         lv_style_set_pad_all(&style_card_main, 8);
+        lv_style_set_border_width(&style_card_focused, 2);
+        lv_style_set_border_color(&style_card_focused, lv_color_hex(0x35cfff));
+        lv_style_set_border_opa(&style_card_focused, 255);
+        lv_style_set_shadow_width(&style_card_focused, 8);
+        lv_style_set_shadow_color(&style_card_focused, lv_color_hex(0x35cfff));
+        lv_style_set_shadow_opa(&style_card_focused, 90);
+        lv_style_set_radius(&style_card_focused, 14);
         lv_style_set_text_color(&style_text_normal, lv_color_hex(0xd8e2f0));
         lv_style_set_text_font(&style_text_normal, font_cn_12);
         lv_style_set_text_color(&style_text_muted, lv_color_hex(0x8fa3bf));
@@ -108,7 +117,9 @@ lv_obj_t * screen_voltage_create(void)
         lv_obj_set_y(main_card, 38);
         lv_obj_set_width(main_card, 220);
         lv_obj_set_height(main_card, 62);
+        lv_obj_set_scrollbar_mode(main_card, LV_SCROLLBAR_MODE_OFF);
         lv_obj_add_style(main_card, &style_card_main, 0);
+        lv_obj_add_style(main_card, &style_card_focused, LV_STATE_FOCUSED);
         lv_obj_t * lv_label_0 = lv_label_create(main_card);
         lv_obj_set_x(lv_label_0, 0);
         lv_obj_set_y(lv_label_0, 0);
@@ -135,7 +146,9 @@ lv_obj_t * screen_voltage_create(void)
         lv_obj_set_y(phase_card, 108);
         lv_obj_set_width(phase_card, 105);
         lv_obj_set_height(phase_card, 72);
+        lv_obj_set_scrollbar_mode(phase_card, LV_SCROLLBAR_MODE_OFF);
         lv_obj_add_style(phase_card, &style_card, 0);
+        lv_obj_add_style(phase_card, &style_card_focused, LV_STATE_FOCUSED);
         lv_obj_t * lv_label_1 = lv_label_create(phase_card);
         lv_obj_set_x(lv_label_1, 0);
         lv_obj_set_y(lv_label_1, 0);
@@ -181,7 +194,9 @@ lv_obj_t * screen_voltage_create(void)
         lv_obj_set_y(freq_card, 108);
         lv_obj_set_width(freq_card, 105);
         lv_obj_set_height(freq_card, 72);
+        lv_obj_set_scrollbar_mode(freq_card, LV_SCROLLBAR_MODE_OFF);
         lv_obj_add_style(freq_card, &style_card, 0);
+        lv_obj_add_style(freq_card, &style_card_focused, LV_STATE_FOCUSED);
         lv_obj_t * lv_label_4 = lv_label_create(freq_card);
         lv_obj_set_x(lv_label_4, 0);
         lv_obj_set_y(lv_label_4, 0);
@@ -214,6 +229,7 @@ lv_obj_t * screen_voltage_create(void)
         lv_obj_set_y(hint_card, 188);
         lv_obj_set_width(hint_card, 220);
         lv_obj_set_height(hint_card, 22);
+        lv_obj_set_scrollbar_mode(hint_card, LV_SCROLLBAR_MODE_OFF);
         lv_obj_add_style(hint_card, &style_card, 0);
         lv_obj_t * label_voltage_hint = lv_label_create(hint_card);
         lv_obj_set_name(label_voltage_hint, "label_voltage_hint");
