@@ -1,0 +1,150 @@
+<screen>
+	<animations>
+		<!--  标准入场动画  -->
+		<timeline name="screen_open">
+			<animation prop="opa" target="top_bar" start="0" end="255" duration="180" delay="0" early_apply="true" />
+			<animation
+				prop="translate_y"
+				target="top_bar"
+				start="-20"
+				end="0"
+				duration="180"
+				delay="0"
+				early_apply="true"
+			/>
+			<animation prop="opa" target="main_card" start="0" end="255" duration="220" delay="80" early_apply="true" />
+			<animation
+				prop="translate_x"
+				target="main_card"
+				start="-40"
+				end="0"
+				duration="220"
+				delay="80"
+				early_apply="true"
+			/>
+			<animation
+				prop="opa"
+				target="bottom_bar"
+				start="0"
+				end="255"
+				duration="180"
+				delay="380"
+				early_apply="true"
+			/>
+			<animation
+				prop="translate_y"
+				target="bottom_bar"
+				start="20"
+				end="0"
+				duration="180"
+				delay="380"
+				early_apply="true"
+			/>
+		</timeline>
+	</animations>
+	<styles>
+		<!--  基础样式与主题保持一致  -->
+		<style name="style_screen_bg" bg_color="0x05070a" />
+		<style
+			name="style_card_main"
+			bg_color="0x0b1118"
+			border_color="0x172331"
+			border_width="1"
+			radius="10"
+			pad_all="8"
+		/>
+		<style
+			name="style_card_focused"
+			border_width="2"
+			border_color="0x35cfff"
+			border_opa="255"
+			shadow_width="8"
+			shadow_color="0x35cfff"
+			shadow_opa="90"
+			radius="14"
+		/>
+
+		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
+		<style name="style_text_muted" text_color="0xbfd6ec" text_font="font_cn_12" />
+		<style name="style_text_title" text_color="0xbfd6ec" text_font="font_cn_16" />
+		<style name="style_text_value" text_color="0x20e6d2" text_font="font_cn_14" />
+		<!--  用于SSID/IP  -->
+		<style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
+		<style name="style_text_fail" text_color="0xff6b6b" text_font="font_cn_12" />
+		<style name="style_text_warn" text_color="0xffd166" text_font="font_cn_12" />
+		<style name="style_btn_text" text_color="0xd8e2f0" text_font="font_cn_12" />
+	</styles>
+	<view>
+		<play_timeline_event target="self" timeline="screen_open" trigger="screen_load_start" />
+		<style name="style_screen_bg" />
+		<top_status_bar
+			name="top_bar"
+			x="0"
+			y="0"
+			title_text="WiFi 配网"
+			time_text="12:30"
+			comm_text="AP"
+			style_opa="0"
+			style_translate_y="-20"
+		/>
+		<lv_obj
+			name="main_card"
+			x="10"
+			y="38"
+			width="220"
+			height="172"
+			scrollable="false"
+			style_opa="0"
+			style_translate_x="-40"
+		>
+			<style name="style_card_main" />
+			<style name="style_card_focused" selector="focused" />
+			<!--  标题  -->
+			<lv_label x="0" y="2" width="100%" text="AP 热点配网" style_text_align="center">
+				<style name="style_text_title" />
+			</lv_label>
+			<!--  SSID 行  -->
+			<lv_label x="0" y="32" text="热点名称">
+				<style name="style_text_muted" />
+			</lv_label>
+			<lv_label name="label_ssid" x="78" y="32" text="SmartHome_8266">
+				<style name="style_text_value" />
+			</lv_label>
+			<!--  IP 地址行  -->
+			<lv_label x="0" y="56" text="配置地址">
+				<style name="style_text_muted" />
+			</lv_label>
+			<lv_label name="label_ip" x="78" y="56" text="192.168.4.1">
+				<style name="style_text_value" />
+			</lv_label>
+			<!--  操作指引  -->
+			<lv_label
+				x="0"
+				y="84"
+				width="100%"
+				text="1 手机连接此 WiFi 热点 2 浏览器访问配置地址 3 等待设备自动联网"
+				style_text_align="left"
+			>
+				<style name="style_text_muted" />
+			</lv_label>
+			<!--  状态显示  -->
+			<lv_label x="0" y="146" width="100%" text="状态: ● 等待连接" style_text_align="left">
+				<style name="style_text_warn" />
+			</lv_label>
+			<!--  为状态更新保留两个额外标签，但单标签动态更新更简单，此处留用label_status  -->
+			<lv_label name="label_status" x="38" y="146" text="">
+				<style name="style_text_warn" />
+			</lv_label>
+		</lv_obj>
+		<bottom_key_bar
+			name="bottom_bar"
+			x="0"
+			y="218"
+			left_text="上/下 切页"
+			center_text="确认 详情"
+			right_text="0/8"
+			style_opa="0"
+			style_translate_y="20"
+		/>
+	</view>
+</screen>

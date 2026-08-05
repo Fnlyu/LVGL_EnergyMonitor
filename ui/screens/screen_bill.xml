@@ -66,13 +66,13 @@
 		<style name="style_text_muted" text_color="0x8fa3bf" text_font="font_cn_12" />
 		<style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_12" />
 		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
+		<style name="style_text_highlight" text_color="0xffd166" text_font="font_cn_12" />
 		<style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
-		<!--  大号数值（总功率）  -->
-		<style name="style_text_big" text_color="0x20e6d2" text_font="font_cn_24" />
-		<!--  小指标数值  -->
-		<style name="style_text_value_small" text_color="0x4dd4ff" text_font="font_cn_12" />
-		<!--  能量流标签  -->
-		<style name="style_text_flow" text_color="0xffb020" text_font="font_cn_16" />
+		<style name="style_text_money" text_color="0x20e6d2" text_font="font_cn_24" />
+		<!--  图表样式  -->
+		<style name="style_chart_bill" bg_opa="0" border_width="0" radius="0" pad_all="0" />
+		<style name="style_chart_items_bill" bg_color="0x20e6d2" bg_opa="255" radius="2" />
+		<style name="style_chart_indicator_hidden" bg_opa="0" />
 	</styles>
 	<view>
 		<play_timeline_event target="self" timeline="screen_open" trigger="screen_load_start" />
@@ -82,7 +82,7 @@
 			name="top_bar"
 			x="0"
 			y="0"
-			title_text="电力仪表"
+			title_text="电费账单"
 			time_text="12:30"
 			comm_text="WiFi"
 			style_opa="0"
@@ -103,75 +103,66 @@
 			style_pad_all="0"
 			style_pad_row="6"
 		>
-			<!--  卡片1：总功率  -->
-			<lv_obj name="card_power" x="0" y="0" width="220" height="60" scrollable="false">
+			<!--  ====== 卡片1：本月电费预估 ======  -->
+			<lv_obj name="card_estimate" x="0" y="0" width="220" height="70" scrollable="false">
 				<style name="style_card" />
 				<style name="style_card_focused" selector="focused" />
-				<lv_label x="4" y="4" text="总功率">
+				<lv_label x="4" y="2" text="本月电费预估">
 					<style name="style_text_title" />
 				</lv_label>
-				<lv_label name="label_total_power" x="4" y="26" text="3.28">
-					<style name="style_text_big" />
+				<!--  金额  -->
+				<lv_label x="4" y="22" text="￥128.50">
+					<style name="style_text_money" />
 				</lv_label>
-				<lv_label x="80" y="32" text="kW">
-					<style name="style_text_muted" />
+				<!--  对比信息  -->
+				<lv_label x="100" y="26" text="较上月">
+					<style name="style_text_normal" />
 				</lv_label>
-				<lv_label x="120" y="28" text="● 正常">
+				<lv_label x="150" y="26" text="↑ 5.2%">
+					<style name="style_text_highlight" />
+				</lv_label>
+				<lv_label x="100" y="44" text="较去年同期">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label x="160" y="44" text="↓ 2.1%">
 					<style name="style_text_ok" />
 				</lv_label>
 			</lv_obj>
-			<!--  卡片2：三列指标（电压/电流/PF）  -->
-			<lv_obj name="card_metrics" x="0" y="66" width="220" height="50" scrollable="false">
+			<!--  ====== 卡片2：阶梯电价分段 ======  -->
+			<lv_obj name="card_tier" x="0" y="76" width="220" height="80" scrollable="false">
 				<style name="style_card" />
 				<style name="style_card_focused" selector="focused" />
-				<!--  电压  -->
-				<lv_label x="6" y="4" text="电压">
+				<lv_label x="4" y="2" text="阶梯电价（当前：第二阶梯）">
+					<style name="style_text_title" />
+				</lv_label>
+				<lv_label x="4" y="20" text="单价">
 					<style name="style_text_normal" />
 				</lv_label>
-				<lv_label name="label_voltage" x="6" y="22" text="220.3 V">
-					<style name="style_text_value_small" />
-				</lv_label>
-				<!--  电流  -->
-				<lv_label x="86" y="4" text="电流">
-					<style name="style_text_normal" />
-				</lv_label>
-				<lv_label name="label_current" x="86" y="22" text="12.6 A">
-					<style name="style_text_value_small" />
-				</lv_label>
-				<!--  功率因数  -->
-				<lv_label x="166" y="4" text="PF">
-					<style name="style_text_muted" />
-				</lv_label>
-				<lv_label name="label_pf" x="166" y="22" text="0.98">
-					<style name="style_text_value_small" />
-				</lv_label>
-			</lv_obj>
-			<!--  卡片3：累计能耗 + 能量流向  -->
-			<lv_obj name="card_energy" x="0" y="122" width="220" height="50" scrollable="false">
-				<style name="style_card" />
-				<style name="style_card_focused" selector="focused" />
-				<lv_label x="6" y="4" text="累计能耗">
-					<style name="style_text_normal" />
-				</lv_label>
-				<lv_label name="label_energy" x="6" y="22" text="128.6 kWh">
+				<lv_label x="50" y="20" text="0.68 元/度">
 					<style name="style_text_value" />
 				</lv_label>
-				<lv_label x="120" y="4" text="流向">
+				<lv_label x="120" y="20" text="已用电">
 					<style name="style_text_normal" />
 				</lv_label>
-				<lv_label x="120" y="22" text="PV to HOME">
-					<style name="style_text_flow" />
+				<lv_label x="170" y="20" text="210 度">
+					<style name="style_text_value" />
+				</lv_label>
+				<lv_label x="4" y="36" text="剩余阶梯">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label x="70" y="36" text="90 度（升至第三阶）">
+					<style name="style_text_highlight" />
 				</lv_label>
 			</lv_obj>
 		</lv_obj>
-		<!--  底部三按键栏（第8屏）  -->
+		<!--  底部三按键栏  -->
 		<bottom_key_bar
 			name="bottom_bar"
 			x="0"
 			y="218"
 			left_text="上/下 切页"
 			center_text="确认 详情"
-			right_text="8/8"
+			right_text="6/8"
 			style_opa="0"
 			style_translate_y="20"
 		/>

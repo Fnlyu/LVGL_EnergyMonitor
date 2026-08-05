@@ -1,0 +1,270 @@
+<screen>
+	<animations>
+		<timeline name="screen_open">
+			<animation prop="opa" target="top_bar" start="0" end="255" duration="180" delay="0" early_apply="true" />
+			<animation
+				prop="translate_y"
+				target="top_bar"
+				start="-20"
+				end="0"
+				duration="180"
+				delay="0"
+				early_apply="true"
+			/>
+			<animation prop="opa" target="alarm_bar" start="0" end="255" duration="200" delay="60" early_apply="true" />
+			<animation
+				prop="translate_y"
+				target="alarm_bar"
+				start="-10"
+				end="0"
+				duration="200"
+				delay="60"
+				early_apply="true"
+			/>
+			<animation
+				prop="opa"
+				target="list_container"
+				start="0"
+				end="255"
+				duration="250"
+				delay="120"
+				early_apply="true"
+			/>
+			<animation
+				prop="translate_x"
+				target="list_container"
+				start="-35"
+				end="0"
+				duration="250"
+				delay="120"
+				early_apply="true"
+			/>
+			<animation
+				prop="opa"
+				target="bottom_bar"
+				start="0"
+				end="255"
+				duration="180"
+				delay="380"
+				early_apply="true"
+			/>
+			<animation
+				prop="translate_y"
+				target="bottom_bar"
+				start="20"
+				end="0"
+				duration="180"
+				delay="380"
+				early_apply="true"
+			/>
+		</timeline>
+	</animations>
+	<styles>
+		<style name="style_screen_bg" bg_color="0x05070a" />
+		<style name="style_card" bg_color="0x101821" border_color="0x1a2632" border_width="1" radius="8" pad_all="0" />
+		<style
+			name="style_card_focused"
+			border_width="2"
+			border_color="0x35cfff"
+			border_opa="255"
+			shadow_width="8"
+			shadow_color="0x35cfff"
+			shadow_opa="90"
+			radius="12"
+		/>
+		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
+		<style name="style_text_muted" text_color="0x8fa3bf" text_font="font_cn_12" />
+		<style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_16" />
+		<style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
+		<style name="style_text_fail" text_color="0xff6b6b" text_font="font_cn_12" />
+		<style name="style_text_warn" text_color="0xffd166" text_font="font_cn_12" />
+		<style name="style_text_alarm" text_color="0xff6b6b" text_font="font_cn_12" />
+		<style
+			name="style_alarm_bar"
+			bg_color="0x331a1a"
+			border_color="0xff6b6b"
+			border_width="1"
+			radius="6"
+			pad_all="4"
+		/>
+	</styles>
+	<view>
+		<play_timeline_event target="self" timeline="screen_open" trigger="screen_load_start" />
+		<style name="style_screen_bg" />
+		<!--  顶部状态栏  -->
+		<top_status_bar
+			name="top_bar"
+			x="0"
+			y="0"
+			title_text="支路监测"
+			time_text="12:30"
+			comm_text="WiFi"
+			style_opa="0"
+			style_translate_y="-20"
+		/>
+		<!--  报警提示条（默认隐藏，有报警时显示）  -->
+		<lv_obj
+			name="alarm_bar"
+			x="10"
+			y="38"
+			width="220"
+			height="24"
+			scrollable="false"
+			style_opa="0"
+			style_translate_y="-10"
+		>
+			<style name="style_alarm_bar" />
+			<lv_label name="alarm_text" x="4" y="0" text="⚠ 厨房回路断电！">
+				<style name="style_text_alarm" />
+			</lv_label>
+			<!--  可添加关闭按钮，但受限于按键，暂不添加  -->
+		</lv_obj>
+		<!--  回路列表容器（可滚动）  -->
+		<lv_obj
+			name="list_container"
+			x="10"
+			y="68"
+			width="220"
+			height="142"
+			scrollable="true"
+			style_opa="0"
+			style_translate_x="-35"
+			style_bg_opa="0"
+			style_border_width="0"
+			style_pad_all="0"
+			style_pad_row="4"
+		>
+			<!--  ====== 回路卡片 1：客厅 ======  -->
+			<lv_obj name="circuit_1" x="0" y="0" width="220" height="50" scrollable="false">
+				<style name="style_card" />
+				<style name="style_card_focused" selector="focused" />
+				<!--  第一行：名称 + 功率  -->
+				<lv_label x="6" y="2" text="客厅">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label name="label_power_1" x="140" y="2" text="0.85KW">
+					<style name="style_text_value" />
+				</lv_label>
+				<!--  第二行：今日用电 + 峰值  -->
+				<lv_label x="6" y="22" text="今日用电">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_energy_1" x="68" y="22" text="3.2KWh">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="140" y="22" text="峰值">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_peak_1" x="178" y="22" text="1.2KW">
+					<style name="style_text_muted" />
+				</lv_label>
+				<!--  第三行：断路器状态  -->
+				<lv_label x="6" y="38" text="断路器">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_status_1" x="66" y="38" text="● 闭合">
+					<style name="style_text_ok" />
+				</lv_label>
+			</lv_obj>
+			<!--  ====== 回路卡片 2：卧室 ======  -->
+			<lv_obj name="circuit_2" x="0" y="54" width="220" height="50" scrollable="false">
+				<style name="style_card" />
+				<style name="style_card_focused" selector="focused" />
+				<lv_label x="6" y="2" text="卧室">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label name="label_power_2" x="140" y="2" text="0.42KW">
+					<style name="style_text_value" />
+				</lv_label>
+				<lv_label x="6" y="22" text="今日用电">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_energy_2" x="68" y="22" text="1.8KWh">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="140" y="22" text="峰值">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_peak_2" x="178" y="22" text="0.6KW">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="6" y="38" text="断路器">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_status_2" x="66" y="38" text="● 断开">
+					<style name="style_text_fail" />
+				</lv_label>
+			</lv_obj>
+			<!--  ====== 回路卡片 3：厨房 ======  -->
+			<lv_obj name="circuit_3" x="0" y="108" width="220" height="50" scrollable="false">
+				<style name="style_card" />
+				<style name="style_card_focused" selector="focused" />
+				<lv_label x="6" y="2" text="厨房">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label name="label_power_3" x="140" y="2" text="2.30KW">
+					<style name="style_text_value" />
+				</lv_label>
+				<lv_label x="6" y="22" text="今日用电">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_energy_3" x="68" y="22" text="5.6KWh">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="140" y="22" text="峰值">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_peak_3" x="178" y="22" text="2.8KW">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="6" y="38" text="断路器">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_status_3" x="66" y="38" text="● 闭合">
+					<style name="style_text_ok" />
+				</lv_label>
+			</lv_obj>
+			<!--  ====== 回路卡片 4：空调 ======  -->
+			<lv_obj name="circuit_4" x="0" y="162" width="220" height="50" scrollable="false">
+				<style name="style_card" />
+				<style name="style_card_focused" selector="focused" />
+				<lv_label x="6" y="2" text="空调">
+					<style name="style_text_normal" />
+				</lv_label>
+				<lv_label name="label_power_4" x="140" y="2" text="1.75KW">
+					<style name="style_text_value" />
+				</lv_label>
+				<lv_label x="6" y="22" text="今日用电">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_energy_4" x="68" y="22" text="4.2KWh">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="140" y="22" text="峰值">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_peak_4" x="178" y="22" text="2.0KW">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="6" y="38" text="断路器">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label name="label_status_4" x="66" y="38" text="● 闭合">
+					<style name="style_text_ok" />
+				</lv_label>
+			</lv_obj>
+			<!--  可继续添加更多回路，实际数据由代码动态更新  -->
+		</lv_obj>
+		<!--  底部三按键栏  -->
+		<bottom_key_bar
+			name="bottom_bar"
+			x="0"
+			y="218"
+			left_text="上/下 切页"
+			center_text="确认 详情"
+			right_text="5/8"
+			style_opa="0"
+			style_translate_y="20"
+		/>
+	</view>
+</screen>

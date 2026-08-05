@@ -66,13 +66,14 @@
 		<style name="style_text_muted" text_color="0x8fa3bf" text_font="font_cn_12" />
 		<style name="style_text_value" text_color="0x4dd4ff" text_font="font_cn_12" />
 		<style name="style_text_normal" text_color="0xd8e2f0" text_font="font_cn_12" />
+		<style name="style_text_highlight" text_color="0xffd166" text_font="font_cn_12" />
 		<style name="style_text_ok" text_color="0x61d394" text_font="font_cn_12" />
-		<!--  大号数值（总功率）  -->
-		<style name="style_text_big" text_color="0x20e6d2" text_font="font_cn_24" />
-		<!--  小指标数值  -->
-		<style name="style_text_value_small" text_color="0x4dd4ff" text_font="font_cn_12" />
-		<!--  能量流标签  -->
-		<style name="style_text_flow" text_color="0xffb020" text_font="font_cn_16" />
+		<!--  进度条背景样式  -->
+		<style name="style_progress_bg" bg_color="0x1a2632" radius="2" />
+		<!--  进度条填充样式（各时段颜色不同）  -->
+		<style name="style_progress_peak" bg_color="0xff4757" radius="2" />
+		<style name="style_progress_flat" bg_color="0xffd166" radius="2" />
+		<style name="style_progress_valley" bg_color="0x61d394" radius="2" />
 	</styles>
 	<view>
 		<play_timeline_event target="self" timeline="screen_open" trigger="screen_load_start" />
@@ -82,7 +83,7 @@
 			name="top_bar"
 			x="0"
 			y="0"
-			title_text="电力仪表"
+			title_text="能效分析"
 			time_text="12:30"
 			comm_text="WiFi"
 			style_opa="0"
@@ -103,75 +104,66 @@
 			style_pad_all="0"
 			style_pad_row="6"
 		>
-			<!--  卡片1：总功率  -->
-			<lv_obj name="card_power" x="0" y="0" width="220" height="60" scrollable="false">
+			<!--  ====== 卡片2：同环比对比 ======  -->
+			<lv_obj name="card_compare" x="0" y="5" width="220" height="65" scrollable="false">
 				<style name="style_card" />
 				<style name="style_card_focused" selector="focused" />
-				<lv_label x="4" y="4" text="总功率">
+				<lv_label x="4" y="2" text="同环比对比">
 					<style name="style_text_title" />
 				</lv_label>
-				<lv_label name="label_total_power" x="4" y="26" text="3.28">
-					<style name="style_text_big" />
-				</lv_label>
-				<lv_label x="80" y="32" text="kW">
+				<lv_label x="4" y="18" text="今日用电">
 					<style name="style_text_muted" />
 				</lv_label>
-				<lv_label x="120" y="28" text="● 正常">
+				<lv_label x="70" y="18" text="6.72 KWh">
+					<style name="style_text_value" />
+				</lv_label>
+				<lv_label x="130" y="18" text="↑ 8.2%">
+					<style name="style_text_highlight" />
+				</lv_label>
+				<lv_label x="4" y="34" text="本周用电">
+					<style name="style_text_muted" />
+				</lv_label>
+				<lv_label x="70" y="34" text="42.3 KWh">
+					<style name="style_text_value" />
+				</lv_label>
+				<lv_label x="130" y="34" text="↓ 3.1%">
 					<style name="style_text_ok" />
 				</lv_label>
 			</lv_obj>
-			<!--  卡片2：三列指标（电压/电流/PF）  -->
-			<lv_obj name="card_metrics" x="0" y="66" width="220" height="50" scrollable="false">
+			<!--  ====== 卡片3：高耗电器 Top5 ======  -->
+			<lv_obj name="card_top5" x="0" y="75" width="220" height="100" scrollable="false">
 				<style name="style_card" />
 				<style name="style_card_focused" selector="focused" />
-				<!--  电压  -->
-				<lv_label x="6" y="4" text="电压">
+				<lv_label x="4" y="2" text="高耗电器 Top5">
+					<style name="style_text_title" />
+				</lv_label>
+				<lv_label x="6" y="18" text="1. 空调 2.30KW">
 					<style name="style_text_normal" />
 				</lv_label>
-				<lv_label name="label_voltage" x="6" y="22" text="220.3 V">
-					<style name="style_text_value_small" />
-				</lv_label>
-				<!--  电流  -->
-				<lv_label x="86" y="4" text="电流">
+				<lv_label x="6" y="32" text="2. 厨房电器 1.85KW">
 					<style name="style_text_normal" />
 				</lv_label>
-				<lv_label name="label_current" x="86" y="22" text="12.6 A">
-					<style name="style_text_value_small" />
+				<lv_label x="6" y="46" text="3. 热水器 1.20KW">
+					<style name="style_text_normal" />
 				</lv_label>
-				<!--  功率因数  -->
-				<lv_label x="166" y="4" text="PF">
-					<style name="style_text_muted" />
+				<lv_label x="6" y="60" text="4. 电冰箱 0.95KW">
+					<style name="style_text_normal" />
 				</lv_label>
-				<lv_label name="label_pf" x="166" y="22" text="0.98">
-					<style name="style_text_value_small" />
+				<lv_label x="6" y="74" text="5. 洗衣机 0.72KW">
+					<style name="style_text_normal" />
 				</lv_label>
 			</lv_obj>
-			<!--  卡片3：累计能耗 + 能量流向  -->
-			<lv_obj name="card_energy" x="0" y="122" width="220" height="50" scrollable="false">
-				<style name="style_card" />
-				<style name="style_card_focused" selector="focused" />
-				<lv_label x="6" y="4" text="累计能耗">
-					<style name="style_text_normal" />
-				</lv_label>
-				<lv_label name="label_energy" x="6" y="22" text="128.6 kWh">
-					<style name="style_text_value" />
-				</lv_label>
-				<lv_label x="120" y="4" text="流向">
-					<style name="style_text_normal" />
-				</lv_label>
-				<lv_label x="120" y="22" text="PV to HOME">
-					<style name="style_text_flow" />
-				</lv_label>
-			</lv_obj>
+			<!--  底部留白  -->
+			<lv_obj x="0" y="248" width="1" height="1" style_bg_opa="0" style_border_width="0" />
 		</lv_obj>
-		<!--  底部三按键栏（第8屏）  -->
+		<!--  底部三按键栏  -->
 		<bottom_key_bar
 			name="bottom_bar"
 			x="0"
 			y="218"
 			left_text="上/下 切页"
 			center_text="确认 详情"
-			right_text="8/8"
+			right_text="4/8"
 			style_opa="0"
 			style_translate_y="20"
 		/>

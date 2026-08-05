@@ -1,4 +1,3 @@
-set(LV_EDITOR_PROJECT_SOURCES)
 list(
   APPEND
   LV_EDITOR_PROJECT_SOURCES
@@ -11,8 +10,14 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_20_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_24_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/font_cn_34_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_alarms_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_bill_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/screens/screen_chart_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_circuits_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_energy_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/screens/screen_home_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/screens/screen_voltage_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_wifi_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/screen_wt3213_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/ui_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/ui.c)
